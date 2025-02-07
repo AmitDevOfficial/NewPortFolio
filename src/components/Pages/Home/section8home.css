@@ -80,5 +80,10 @@ span.clientIcon {
 }
 .quote {
     font-size: 95px;
-    color: red;
+    color: var(--text-hover);
+}
+
+/*----Slider----*/
+.startSlider {
+    justify-items: center;
 }

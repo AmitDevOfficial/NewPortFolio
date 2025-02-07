@@ -1,6 +1,6 @@
 import React from "react";
-import Slider from "react-slick";
 import "./section2home.css";
+import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import brand01 from "../images/sliderImg/brand-big-01.png";
