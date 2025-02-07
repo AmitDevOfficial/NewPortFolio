@@ -1,0 +1,18 @@
+.slickSliderSectionTwo {
+   margin: 150px 0px 150px 0px;
+   align-items: center !important;
+}
+
+.slickSliderSectionTwo img{
+    width: 30%;
+    opacity: 60%;
+    margin: auto;
+    filter: var(--bs-filter);
+}
+
+.slickSliderSectionTwo img:hover{
+    transition: 0.8s ease;
+    opacity: 100%;
+    filter: var(--bs-filter);
+}
+

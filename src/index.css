@@ -1,0 +1,123 @@
+@media (max-width: 1600px) {
+  .container {
+    max-width: 1350px;
+    margin: 0px auto;
+  }
+}
+
+:root {
+  --primary: -webkit-linear-gradient(#4875ff, #a64dff);
+  --secondary: #000a2d;
+  --text-hover: #7661ff;
+  --text-hover1: #000000;
+  --hover-animation: linear-gradient(22deg, #a64dff, #4875ff);
+  --warning: #ffc107;
+  --danger: linear-gradient(182deg, #ff00f9, #fffdfd); 
+  --light: #ffffff;
+  --dark: #536cff33;
+  --bs-box-shadow1: 10px 10px 19px #00000000, -10px -10px 19px #171e3700;
+  --bs-background1: linear-gradient(22deg, #4875ff, #a64dff);
+  --bs-filter: invert(1);
+  --bs-box-shadow2: 10px 10px 19px #0000003b, -10px -10px 19px #171e3730;
+  --bs-background2: linear-gradient(22deg, #4875ff, #a64dff);
+  --socialSubTitle: #4848ff;
+}
+
+[data-theme="dark"] {
+  --primary: #f9004d;
+  --secondary: #ffffff;
+  --text-hover: #f9004d;
+  --text-hover1: #f9004d;
+  --hover-animation: linear-gradient(22deg, #000a2d, #050053);
+  --warning: #ffc107;
+  /* --danger: linear-gradient(182deg, #00b8ff, #0d0d0d); */
+  --danger: linear-gradient(182deg, #007bff, #0d0d0d);
+  --light: #f8f9fa;
+  --dark: #000a2d;
+  --bs-box-shadow1: 10px 10px 19px #0000007a, -10px -10px 19px #171e37;
+  --bs-background1: linear-gradient(22deg, #050053, #000a2d);
+  --bs-filter: invert(0);
+  --bs-box-shadow2: 10px 10px 19px #0000007a, -10px -10px 19px #171e37;
+  --bs-background2: linear-gradient(22deg, #050053, #000a2d);
+  --socialSubTitle: #f9004d;
+}
+
+/*------Font Varibale----*/
+:root {
+  --font-primary: 'Poppins', sans-serif;
+  --font-secondary: 'Roboto', sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
+}
+
+.socialSubTitle{
+  font-size: 14px;
+  font-family: var(--font-heading);
+  color: var(--socialSubTitle);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 20px;
+}
+
+p {
+  font-family: var(--font-primary) !important;
+  font-size: 16px;
+  color: var(--secondary);
+  line-height: 25px;
+}
+
+h1 {
+  font-family: var(--font-heading);
+  color: var(--secondary);
+  text-transform: capitalize;
+  font-weight: 700;
+  font-size: 60px;
+  letter-spacing: 3px;
+  line-height: 62px;
+}
+
+h2{
+  font-family: var(--font-primary);
+  color: var(--secondary);
+  text-transform: capitalize;
+  font-weight: 700;
+  font-size: 45px;
+  letter-spacing: 1px;
+  line-height: 52px;
+}
+
+h3{
+  font-family: var(--font-heading);
+  color: var(--secondary);
+  text-transform: capitalize;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 45px;
+}
+
+
+body {
+  overflow-y: auto;
+  max-height: 100%;
+}
+
+body::-webkit-scrollbar {
+  width: 5px;
+  height: 20%;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 50px;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

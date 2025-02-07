@@ -1,0 +1,8 @@
+footer{
+    background-color: var(--dark);
+    color: var(--secondary);
+    font-family: var(--font-primary);
+    font-size: 15px;
+    padding: 20px;
+    justify-items: center;
+}

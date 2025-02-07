@@ -1,0 +1,70 @@
+.mainProgressCard{
+    display: flex;
+    justify-content: space-around;
+}
+label.socialSubTitle {
+    line-height: 35px;
+    margin: 0px;
+    /* float: right; */
+}
+Progress{
+    width: 100%;
+}
+.progressCards .socialSubTitle {
+    color: var(--light);
+}
+.progressCards span.socialSubTitle {
+    color: var(--light);
+    margin: 0px;
+    line-height: 40px;
+}
+.progressCards{
+    background: var(--bs-background1);
+    box-shadow: var(--bs-box-shadow2);
+    width: 25%;
+    padding: 30px;
+    border-radius: 10px;
+}
+.mainLabel{
+    display: flex;
+    justify-content: space-between;
+}
+.mainProgressBar {
+    margin-bottom: 12px;
+}
+.progressCards h3{
+    color: var(--light);
+    margin-bottom: 15px;
+}
+
+progress {
+    width: 100%;
+    height: 10px;
+    appearance: none;               /* Remove default styling */
+    -webkit-appearance: none;       /* For Safari/Chrome */
+    border: none;
+    background-color: #eee;
+    border-radius: 10px;
+    overflow: hidden;               /* Ensure rounded corners are applied */
+}
+
+/* Progress bar background */
+progress::-webkit-progress-bar {
+    background-color: #eee;
+    border-radius: 10px;
+}
+
+/* Progress value (the filling part) */
+progress::-webkit-progress-value {
+    background: var(--danger);
+    border-radius: 10px 0 0 10px;   /* Apply rounded corners to the left side only */
+    transition: width 0.5s ease-in-out;
+}
+
+/* Firefox support */
+progress::-moz-progress-bar {
+    /* background-color: #007bff; */
+    background: var(--danger);
+    border-radius: 10px 0 0 10px;
+    transition: width 0.5s ease-in-out;
+}
