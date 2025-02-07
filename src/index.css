@@ -11,6 +11,8 @@
   --text-hover: #7661ff;
   --text-hover1: #000000;
   --hover-animation: linear-gradient(22deg, #a64dff, #4875ff);
+  --bs-header: #dde2ff80 ;
+  --bs-headerBoxShadow: 0px -5px 16px #2e3e60;
   --warning: #ffc107;
   --danger: linear-gradient(182deg, #ff00f9, #fffdfd); 
   --light: #ffffff;
@@ -29,6 +31,8 @@
   --text-hover: #f9004d;
   --text-hover1: #f9004d;
   --hover-animation: linear-gradient(22deg, #000a2d, #050053);
+  --bs-header: #000a2d66;
+  --bs-headerBoxShadow: 0px 1px 25px #a4a4a46e;
   --warning: #ffc107;
   /* --danger: linear-gradient(182deg, #00b8ff, #0d0d0d); */
   --danger: linear-gradient(182deg, #007bff, #0d0d0d);

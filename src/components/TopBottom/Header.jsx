@@ -3,14 +3,33 @@ import { FiSun } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import "./header.css";
 import myImg from "../Pages/images/myImg.jpg";
+import { useEffect, useState } from "react";
 
 
 
 export default function Header(props) {
-   
+
+   const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        // Cleanup on component unmount
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
 
     return (
-        <header>
+        <header className={isScrolled ? "header scroll" : "header"}>
             <div className="mainHeader container">
                 <div className="leftside">
                     <Link to="/"><img src={myImg} width={100} alt="" /></Link>
