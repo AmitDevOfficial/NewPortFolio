@@ -14,6 +14,9 @@ import Section3Home from './Section3Home';
 import Section4Home from './Section4Home';
 import Section5Home from './Section5Home';
 import Section6Home from './Section6Home';
+import Section7Home from './Section7Home';
+import Section8Home from './Section8Home';
+
 
 
 export default function Home() {
@@ -68,6 +71,8 @@ export default function Home() {
     <Section4Home />
     <Section5Home />
     <Section6Home />
+    <Section7Home />
+    <Section8Home />
     </>
    
   )

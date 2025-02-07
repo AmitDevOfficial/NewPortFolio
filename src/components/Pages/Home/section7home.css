@@ -1,0 +1,26 @@
+.mainSection7Home{
+    margin: 120px 0px 120px 0px;
+    justify-items: center;
+}
+span.socialSubTitle.tools {
+    text-align: center;
+    line-height: 50px;
+}
+
+#toolSection{
+    margin-top: 40px;
+    justify-items: center;
+}
+
+#toolSection.socialmediaHomeOne ul li {
+    padding: 20px 25px !important;
+    font-size: 30px;
+}
+
+.toolTwo{
+    padding-top: 30px;
+}
+
+#toolSection:nth-child(4){
+    margin-top: 70px;
+}

@@ -1,0 +1,84 @@
+.mainsection8Home{
+    margin: 120px 0px 120px 0px;
+    justify-items: center;
+}
+.mainClientSay{
+    display: flex;
+    width: 85%;
+    column-gap: 30px;
+    margin-top: 50px;
+}
+.clientLeft {
+    width: 30%;
+    background: var(--bs-background2);
+    box-shadow: var(--bs-box-shadow2);
+    padding: 25px 25px 40px 25px;
+    border-radius: 8px;
+}
+.clientLeft img{
+    border-radius: 8px;
+}
+.clientRight{
+    width: 80%;
+}
+.clientInnerOne{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+.clientInnerTwo{
+    background: var(--bs-background2);
+    box-shadow: var(--bs-box-shadow2);
+    padding: 25px 25px 40px 25px;
+    border-radius: 8px;
+}
+.clientLeft h5{
+    color: var(--light);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 50px;
+}
+.clientRight h5{
+    color: var(--light);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 50px;
+}
+.clientInnerTwo p:nth-child(2){
+    padding-bottom: 20px;
+    line-height: 30px;
+    color: var(--light);
+}
+
+.clientInnerTwo p:nth-child(3){
+    padding-top: 30px;
+    line-height: 30px;
+    color: var(--light);
+}
+
+.clientLeft .socialSubTitle{
+    line-height: 60px;
+    margin: 0px;
+}
+span.clientIcon {
+    font-size: 112px;
+    font-weight: 300 !important;
+}
+.ratingStar{
+    background: var(--bs-background2);
+    box-shadow: var(--bs-box-shadow2);
+    padding: 20px;
+    border-radius: 8px;
+    color: yellow;
+}
+.contentWithIcon{
+    display: flex;
+    justify-content: space-between;
+}
+.quote {
+    font-size: 95px;
+    color: red;
+}
