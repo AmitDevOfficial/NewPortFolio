@@ -12,7 +12,7 @@ import clientThree from "../images/HomeImg/client3.png"
 export default function Section8Home() {
     const settings = {
         infinite: true,
-        speed: 3000,          // Smooth transition speed
+        speed: 2000,          // Smooth transition speed
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: false,
@@ -43,7 +43,6 @@ export default function Section8Home() {
                                             <span className='quote'><LuQuote /></span>
                                         </div>
                                         <div>
-                                            <p>two</p>
                                         </div>
                                     </div>
                                     <div className="clientInnerTwo">
@@ -80,7 +79,6 @@ export default function Section8Home() {
                                             <span className='quote'><LuQuote /></span>
                                         </div>
                                         <div>
-                                            <p>two</p>
                                         </div>
                                     </div>
                                     <div className="clientInnerTwo">
@@ -117,7 +115,7 @@ export default function Section8Home() {
                                             <span className='quote'><LuQuote /></span>
                                         </div>
                                         <div>
-                                            <p>two</p>
+                                            
                                         </div>
                                     </div>
                                     <div className="clientInnerTwo">
@@ -138,12 +136,6 @@ export default function Section8Home() {
                                 </div>
                             </div>
                         </div>
-                        {/* <div>
-                            <p>one</p>
-                        </div>
-                        <div>
-                            <p>one</p>
-                        </div> */}
                     </Slider>
                 </div>
             </div>

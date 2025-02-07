@@ -5,6 +5,10 @@
   }
 }
 
+body {
+  overflow-x: hidden;
+}
+
 :root {
   --primary: -webkit-linear-gradient(#4875ff, #a64dff);
   --secondary: #000a2d;
