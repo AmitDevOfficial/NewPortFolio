@@ -24,7 +24,7 @@ export default function Section3Home() {
                         <p>If you're looking to hire a developer who understands both traditional CMS and modern JavaScript frameworks, feel free to contact me. You can also download my resume using the button below.</p>
                         </div>
 
-                        <a href="/Resume/resume.pdf" download><button>Donwload Resume</button></a>
+                        <a href="/Resume/MERN and CMS Resume.pdf" download><button>Donwload Resume</button></a>
                     </div>
                 </div>
 
