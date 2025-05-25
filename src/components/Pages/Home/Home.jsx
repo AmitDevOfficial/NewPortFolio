@@ -37,7 +37,7 @@ export default function Home() {
             delaySpeed={1000}
           />
         </div>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro fugit labore voluptatem beatae quaerat sint blanditiis, similique quas, repellat tempore sed ratione impedit, aliquam culpa nam praesentium reprehenderit consequatur maiores!z</p>
+        <p>I help businesses build fast, user-friendly, and SEO-optimized websites using WordPress and Shopify. With 2.5+ years of hands-on experience, I turn ideas into high-performing digital platforms that drive results.</p>
 
         <div className="socialMediaMainHome">
 
