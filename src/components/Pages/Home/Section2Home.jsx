@@ -1,17 +1,14 @@
-import React from "react";
+import { useState } from "react";
 import "./section2home.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import brand01 from "../images/sliderImg/brand-big-01.png";
-import brand02 from "../images/sliderImg/brand-big-02.png";
-import brand03 from "../images/sliderImg/brand-big-03.png";
-import brand04 from "../images/sliderImg/brand-big-04.png";
-import brand05 from "../images/sliderImg/brand-big-05.png";
-import brand06 from "../images/sliderImg/brand-big-06.png";
-
+import { resolveBrandImage } from "../../../data/brandsData";
+import { loadBrands } from "../../../utils/brandsStore";
 
 export default function Section2Home() {
+
+    const [brands] = useState(() => loadBrands());
 
     const settings = {
         infinite: true,
@@ -21,34 +18,26 @@ export default function Section2Home() {
         autoplay: true,
         autoplaySpeed: 0,
         cssEase: "linear",
-        arrows: false
+        arrows: false,
+        pauseOnHover: false,
+        responsive: [
+            { breakpoint: 992, settings: { slidesToShow: 3 } },
+            { breakpoint: 576, settings: { slidesToShow: 2 } }
+        ]
     };
 
     return (
-        <div className="#" style={{ width: "100%", margin: "auto" }}>
+        <div className="brandSliderWrap section-spacing">
+            <div className="container">
+                <span className="socialSubTitle">Trusted technologies I build with</span>
+            </div>
             <Slider {...settings} className="slickSliderSectionTwo">
-               
-                    <div>
-                        <img src={brand01} alt="Slide 1" />
+                {brands.map((brand) => (
+                    <div key={brand.id}>
+                        <img src={resolveBrandImage(brand)} alt={brand.alt} />
                     </div>
-                    <div>
-                        <img src={brand02} alt="Slide 1" />
-                    </div>
-                    <div>
-                        <img src={brand03} alt="Slide 1" />
-                    </div>
-                    <div>
-                        <img src={brand04} alt="Slide 1" />
-                    </div>
-                    <div>
-                        <img src={brand05} alt="Slide 1" />
-                    </div>
-                    <div>
-                        <img src={brand06} alt="Slide 1" />
-                    </div>
-               
+                ))}
             </Slider>
         </div>
     )
 }
-

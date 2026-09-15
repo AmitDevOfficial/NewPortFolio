@@ -1,80 +1,68 @@
-import React from 'react';
+import { useState } from "react";
 import "./section5home.css";
-import { FaLongArrowAltRight } from "react-icons/fa";
+import { motion, AnimatePresence } from 'framer-motion';
+import { resolveProjectImage } from "../../../data/projectsData";
+import { loadProjects } from "../../../utils/projectsStore";
 
 export default function Section5Home() {
+
+    const [showMore, setShowMore] = useState(false);
+    const [allProjects] = useState(() => loadProjects());
+
+    const projects = allProjects.filter((p) => p.featured);
+    const moreProjects = allProjects.filter((p) => !p.featured);
+
+    const renderCard = (project, i) => (
+        <motion.div
+            className="projectCard"
+            key={project.id}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: i * 0.1 }}
+        >
+            <div className="projectImg" style={{ backgroundImage: `url(${resolveProjectImage(project)})` }}></div>
+            <div className="projectBody">
+                <span className='socialSubTitle'>{project.tag}</span>
+                <h3>{project.title}</h3>
+                <p>{project.desc}</p>
+                <div className="projectTags">
+                    {project.tags.map((t) => <span key={t}>{t}</span>)}
+                </div>
+            </div>
+        </motion.div>
+    );
+
     return (
-        <div id='section5Home' className='container'>
+        <div id='projects' className='container section-spacing'>
             <div className="mainSection5home">
                 <div className="mainSection5homeHeading">
-                    <span className='socialSubTitle'>Here is a sample of projects I've worked on.</span>
-                    <h1>Selected projects</h1>
+                    <span className='socialSubTitle'>What I build</span>
+                    <h2>Featured Work</h2>
                 </div>
+
                 <div className="selectedProjects">
-                    <div className="projectOne">
-                        <div className="pojectOneContent">
-                            <div className='bgProjectSection'>
-                                <span className='socialSubTitle'>E-Commerce Redesign</span>
-                                <h3>Boosting Conversions by 40%</h3>
-                                <p>Discover how our strategic UX/UI enhancements transformed a struggling e-commerce site into a revenue-generating powerhouse.</p>
-                                <div className="learnMore">
-                                    <div>
-                                        <span><FaLongArrowAltRight /></span>
-                                    </div>
-                                    <div>
-                                        <p className='learnMorePara'>Learn More About This Case Studyn</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="pojectOneContent">
-                            <div className='bgProjectImg'>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="projectOne">
-                        <div className="pojectOneContent">
-                            <div className='bgProjectSection'>
-                                <span className='socialSubTitle'>E-Commerce Redesign</span>
-                                <h3>Boosting Conversions by 40%</h3>
-                                <p>Discover how our strategic UX/UI enhancements transformed a struggling e-commerce site into a revenue-generating powerhouse.</p>
-                                <div className="learnMore">
-                                    <div>
-                                        <span><FaLongArrowAltRight /></span>
-                                    </div>
-                                    <div>
-                                        <p className='learnMorePara'>Learn More About This Case Studyn</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="pojectOneContent">
-                            <div className='bgProjectImg1'>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="projectOne">
-                        <div className="pojectOneContent">
-                            <div className='bgProjectSection'>
-                                <span className='socialSubTitle'>E-Commerce Redesign</span>
-                                <h3>Boosting Conversions by 40%</h3>
-                                <p>Discover how our strategic UX/UI enhancements transformed a struggling e-commerce site into a revenue-generating powerhouse.</p>
-                                <div className="learnMore">
-                                    <div>
-                                        <span><FaLongArrowAltRight /></span>
-                                    </div>
-                                    <div>
-                                        <p className='learnMorePara'>Learn More About This Case Studyn</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="pojectOneContent">
-                            <div className='bgProjectImg2'>
-                            </div>
-                        </div>
-                    </div>
+                    {projects.map((project, i) => renderCard(project, i))}
                 </div>
+
+                <AnimatePresence>
+                    {showMore && moreProjects.length > 0 && (
+                        <motion.div
+                            className="selectedProjects moreProjectsGrid"
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.5 }}
+                        >
+                            {moreProjects.map((project, i) => renderCard(project, i))}
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+
+                {moreProjects.length > 0 && (
+                    <button className="moreProjectsBtn" onClick={() => setShowMore((prev) => !prev)}>
+                        {showMore ? "Show Less" : "More Projects"}
+                    </button>
+                )}
             </div>
         </div>
     )

@@ -1,0 +1,46 @@
+.scrollFollowRail {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 100vh;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.scrollLine {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    border-radius: 4px;
+}
+
+.scrollLineUp {
+    background: linear-gradient(180deg, transparent, var(--primary), transparent);
+    animation: scrollLineMoveUp 2.5s linear infinite;
+}
+
+.scrollLineDown {
+    background: linear-gradient(180deg, transparent, skyblue, transparent);
+    animation: scrollLineMoveDown 2.5s linear infinite;
+}
+
+@keyframes scrollLineMoveUp {
+    0% {
+        top: 100%;
+    }
+    100% {
+        top: -90px;
+    }
+}
+
+@keyframes scrollLineMoveDown {
+    0% {
+        top: -90px;
+    }
+    100% {
+        top: 100%;
+    }
+}

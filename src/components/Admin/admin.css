@@ -1,0 +1,504 @@
+.adminLoginWrap {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--dark);
+    padding: 24px;
+}
+
+.adminLoginCard {
+    background: var(--surface);
+    padding: 40px;
+    border-radius: 14px;
+    box-shadow: var(--bs-box-shadow1);
+    width: 100%;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.adminLoginCard h2 {
+    margin-bottom: 4px;
+}
+
+.adminLoginCard input {
+    padding: 12px 14px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--dark);
+    color: var(--secondary);
+    font-family: var(--font-primary);
+}
+
+.adminError {
+    color: var(--primary);
+    font-size: 13px;
+}
+
+.adminLayout {
+    min-height: 100vh;
+    background: var(--dark);
+    display: flex;
+}
+
+.adminSidebar {
+    width: 240px;
+    flex-shrink: 0;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    padding: 28px 20px;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+.adminSidebarTitle {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--secondary);
+    margin-bottom: 30px;
+}
+
+.adminSidebarNav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.adminSidebarLink {
+    text-align: left;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: var(--font-primary);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.adminSidebarLink:hover {
+    background: var(--dark);
+    color: var(--secondary);
+}
+
+.adminSidebarLink.active {
+    background: var(--primary);
+    color: #fff;
+}
+
+.adminSidebarFooter {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+}
+
+.adminSidebarLogout {
+    text-align: left;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    font-family: var(--font-primary);
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.adminSidebarLogout:hover {
+    background: var(--dark);
+    color: var(--primary);
+}
+
+.adminMain {
+    flex: 1;
+    padding: 40px 32px 100px;
+    max-width: 900px;
+}
+
+.adminTopBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.adminViewSiteLink {
+    color: var(--primary);
+    text-decoration: none;
+    font-family: var(--font-primary);
+    font-weight: 600;
+}
+
+.adminHint {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 16px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-family: var(--font-primary);
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.adminHint code {
+    background: var(--dark);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--secondary);
+}
+
+.adminBanner {
+    background: rgba(249, 0, 77, 0.12);
+    border: 1px solid var(--primary);
+    color: var(--secondary);
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    font-family: var(--font-primary);
+    font-size: 14px;
+}
+
+.adminStatus {
+    background: var(--surface);
+    border-left: 3px solid var(--primary);
+    padding: 10px 16px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    font-family: var(--font-primary);
+    font-size: 14px;
+    color: var(--secondary);
+}
+
+.adminActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.adminBtnPrimary,
+.adminBtnGhost {
+    padding: 12px 22px;
+    border-radius: 6px;
+    font-family: var(--font-primary);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    border: none;
+}
+
+.adminBtnPrimary {
+    background: var(--primary);
+    color: #fff;
+}
+
+.adminBtnGhost {
+    background: var(--surface);
+    color: var(--secondary);
+    border: 1px solid var(--border);
+}
+
+.adminBtnPrimary:hover,
+.adminBtnGhost:hover {
+    transform: translateY(-3px);
+}
+
+.adminExportPanel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.adminExportPanel textarea {
+    width: 100%;
+    background: var(--dark);
+    color: var(--secondary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+    font-family: monospace;
+    font-size: 12px;
+    resize: vertical;
+}
+
+.adminProjectsList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.adminProjectCard {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.adminProjectHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--secondary);
+}
+
+.adminProjectHeaderActions {
+    display: flex;
+    gap: 8px;
+}
+
+.adminProjectHeaderActions button {
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--dark);
+    color: var(--secondary);
+    cursor: pointer;
+}
+
+.adminProjectHeaderActions button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.adminDeleteBtn {
+    width: auto !important;
+    padding: 0 12px;
+    color: var(--primary) !important;
+}
+
+.adminProjectCard label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-family: var(--font-primary);
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.adminProjectCard input[type="text"],
+.adminProjectCard textarea,
+.adminProjectCard select {
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--dark);
+    color: var(--secondary);
+    font-family: var(--font-primary);
+    font-size: 14px;
+}
+
+.adminImageSection {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.adminImageSectionLabel {
+    font-family: var(--font-primary);
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.adminImageTabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.adminImageTab {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: var(--dark);
+    color: var(--muted);
+    font-family: var(--font-primary);
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.adminImageTab.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+.adminImageGallery {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.adminGalleryThumb {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 8px;
+    border-radius: 8px;
+    border: 2px solid var(--border);
+    background: var(--dark);
+    cursor: pointer;
+    width: 110px;
+}
+
+.adminGalleryThumb img {
+    width: 90px;
+    height: 65px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.adminGalleryThumb span {
+    font-family: var(--font-primary);
+    font-size: 11px;
+    color: var(--muted);
+    text-align: center;
+}
+
+.adminGalleryThumb.active {
+    border-color: var(--primary);
+}
+
+.adminImageUpload {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.adminImageUpload input[type="file"] {
+    color: var(--muted);
+    font-family: var(--font-primary);
+    font-size: 13px;
+}
+
+.adminUploadHint {
+    font-family: var(--font-primary);
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.adminImagePreview {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-primary);
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.adminImagePreview img {
+    width: 100px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+}
+
+.adminParagraphRow {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.adminParagraphRow textarea {
+    flex: 1;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--dark);
+    color: var(--secondary);
+    font-family: var(--font-primary);
+    font-size: 14px;
+}
+
+.adminParagraphRow .adminProjectHeaderActions {
+    flex-shrink: 0;
+    margin-top: 4px;
+}
+
+.adminCheckboxLabel {
+    flex-direction: row !important;
+    align-items: center;
+    gap: 10px !important;
+}
+
+.adminAddBtn {
+    margin-top: 24px;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .adminLayout {
+        flex-direction: column;
+    }
+
+    .adminSidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 16px 20px;
+    }
+
+    .adminSidebarTitle {
+        margin-bottom: 0;
+        margin-right: 20px;
+    }
+
+    .adminSidebarNav {
+        flex-direction: row;
+        flex: unset;
+    }
+
+    .adminSidebarFooter {
+        flex-direction: row;
+        border-top: none;
+        padding-top: 0;
+        margin-left: auto;
+    }
+
+    .adminMain {
+        padding: 24px 20px 80px;
+    }
+}
+
+@media (max-width: 576px) {
+    .adminActions {
+        flex-direction: column;
+    }
+
+    .adminActions button {
+        width: 100%;
+    }
+}

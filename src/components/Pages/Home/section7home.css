@@ -1,26 +1,109 @@
-.mainSection7Home{
-    margin: 120px 0px 120px 0px;
-    justify-items: center;
-}
-span.socialSubTitle.tools {
+.mainSection7Home {
     text-align: center;
-    line-height: 50px;
 }
 
-#toolSection{
-    margin-top: 40px;
-    justify-items: center;
+.mainSection7Home h2 {
+    margin-bottom: 40px;
 }
 
-#toolSection.socialmediaHomeOne ul li {
-    padding: 20px 25px !important;
-    font-size: 30px;
+.toolsGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 22px;
+    max-width: 940px;
+    margin: 0 auto;
 }
 
-.toolTwo{
-    padding-top: 30px;
+.toolCard {
+    --border-angle: 0deg;
+    position: relative;
+    border: 1px solid var(--border);
+    background:
+        linear-gradient(160deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01)) padding-box,
+        var(--surface) padding-box;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    padding: 30px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    flex: 0 0 120px;
+    transition: transform 0.45s ease, box-shadow 0.45s ease, border-color 0.45s ease;
 }
 
-#toolSection:nth-child(4){
-    margin-top: 70px;
+.toolIconWrap {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transition: transform 0.45s ease, background 0.45s ease;
+}
+
+.toolCard img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    transition: transform 0.45s ease;
+}
+
+.toolLabel {
+    font-family: var(--font-primary);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    transition: color 0.4s ease;
+}
+
+.toolCard:hover {
+    transform: translateY(-8px);
+    border-color: transparent;
+    background:
+        linear-gradient(160deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02)) padding-box,
+        conic-gradient(from var(--border-angle), var(--primary) 0%, transparent 18%, transparent 50%, skyblue 50%, transparent 68%, transparent 100%) border-box;
+    border: 1px solid transparent;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    animation: borderAngleSpin 6s linear infinite;
+}
+
+.toolCard:hover .toolIconWrap {
+    transform: scale(1.08);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.toolCard:hover img {
+    transform: scale(1.1);
+}
+
+.toolCard:hover .toolLabel {
+    color: var(--light);
+}
+
+@media (max-width: 576px) {
+    .toolsGrid {
+        gap: 14px;
+    }
+
+    .toolCard {
+        flex-basis: 92px;
+        padding: 22px 10px;
+        gap: 12px;
+    }
+
+    .toolIconWrap {
+        width: 46px;
+        height: 46px;
+    }
+
+    .toolCard img {
+        width: 24px;
+        height: 24px;
+    }
 }

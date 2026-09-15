@@ -1,28 +1,19 @@
 import { BsMoonStarsFill } from "react-icons/bs";
 import { FiSun } from "react-icons/fi";
-import { Link } from "react-router-dom";
 import "./header.css";
 import myImg from "../Pages/images/myImg.jpg";
 import { useEffect, useState } from "react";
 
-
-
 export default function Header(props) {
 
-   const [isScrolled, setIsScrolled] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 50) {
-                setIsScrolled(true);
-            } else {
-                setIsScrolled(false);
-            }
+            setIsScrolled(window.scrollY > 50);
         };
 
         window.addEventListener("scroll", handleScroll);
-
-        // Cleanup on component unmount
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
@@ -32,29 +23,24 @@ export default function Header(props) {
         <header className={isScrolled ? "header scroll" : "header"}>
             <div className="mainHeader container">
                 <div className="leftside">
-                    <Link to="/"><img src={myImg} width={100} alt="" /></Link>
+                    <a href="#home">
+                        <span className="avatarRing">
+                            <img src={myImg} alt="Amit Vishwakarma" />
+                        </span>
+                        <span className="brandName">Amit Vishwakarma</span>
+                    </a>
                 </div>
-                <div className="rightside">
-                    <ul>
-                        <li><Link to="/">Home</Link></li>
-                        <li> <Link to="/about">About</Link></li>
-                        <li><Link to="/services">Services</Link></li>
-                        <li><Link to="/pricing">Pricing</Link></li>
-                        <li><Link to="/blog">Blog</Link></li>
-                        <li><Link to="/contact">Contact</Link></li>
-                    </ul>
-                </div>
+
                 <div className="rightSideone">
-                    {/* <button class="custom-btn btn-11">Read More<div class="dot"></div></button> */}
                     <div className="themeChangeIcon">
-                    {props.mode === "dark" ? (
-                         <span className="icons"><FiSun onClick={props.toggleMode} /></span>
-                    ) : (
-                        <span className="icons"><BsMoonStarsFill mode={props.mode} onClick={props.toggleMode} /></span>
-                    )}
+                        {props.mode === "dark" ? (
+                            <span className="icons" onClick={props.toggleMode} aria-label="Switch to light mode"><FiSun /></span>
+                        ) : (
+                            <span className="icons" onClick={props.toggleMode} aria-label="Switch to dark mode"><BsMoonStarsFill /></span>
+                        )}
                     </div>
-                
-                    <button className="custom-btn btn-11">Hire Me<div className="dot"></div></button>
+
+                    <a href="#contact" className="custom-btn btn-11">Hire Me<div className="dot"></div></a>
                 </div>
             </div>
         </header>

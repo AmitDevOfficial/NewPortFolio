@@ -1,32 +1,47 @@
-import React from 'react';
+import { useState } from "react";
 import "./section3home.css";
-import aboutImg from "../images/HomeImg/aboutImg.jpeg";
+import { motion } from 'framer-motion';
+import { loadResume } from "../../../utils/resumeStore";
+import { resolveAboutImage } from "../../../data/aboutData";
+import { loadAbout } from "../../../utils/aboutStore";
 
 export default function Section3Home() {
+    const [resume] = useState(() => loadResume());
+    const [about] = useState(() => loadAbout());
+
     return (
-        <div id='section3Home' className='container'>
+        <div id='about' className='container section-spacing'>
             <div className='section3HomeMain'>
 
-                <div className="section3HomeLeft">
+                <motion.div
+                    className="section3HomeLeft"
+                    initial={{ opacity: 0, x: -40 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.7 }}
+                >
                     <div className="section3AboutImg">
-                        <img src={aboutImg} alt="" />
+                        <img src={resolveAboutImage(about)} alt="Amit Vishwakarma" />
                     </div>
-                </div>
+                </motion.div>
 
-                <div className="section3HomeRight">
+                <motion.div
+                    className="section3HomeRight"
+                    initial={{ opacity: 0, x: 40 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.7 }}
+                >
                     <div className="section3RightContent">
-                        <h2>Inquisitive and passionate about emerging technology.</h2>
+                        <span className="socialSubTitle">{about.tag}</span>
+                        <h2>{about.heading}</h2>
                         <div className='section3Para'>
-                        <p>I’m Amit Vishwakarma, a passionate web developer with 2.5+ years of experience in WordPress and Shopify, and I’ve also completed a 6-month MERN stack internship to strengthen my full-stack development skills.</p>
-                        <br />
-                        <p>Along with CMS platforms, I’ve developed a strong grip on React JS and I'm actively shifting towards modern, scalable, and high-performance front-end development using the latest technologies.</p>
-                        <br />
-                        <p>If you're looking to hire a developer who understands both traditional CMS and modern JavaScript frameworks, feel free to contact me. You can also download my resume using the button below.</p>
+                            {about.paragraphs.map((para, i) => (
+                                <p key={i}>{para}</p>
+                            ))}
                         </div>
 
-                        <a href="/Resume/MERN and CMS Resume.pdf" download><button>Donwload Resume</button></a>
+                        <a href={resume.url} download={resume.fileName}><button>Download Resume</button></a>
                     </div>
-                </div>
+                </motion.div>
 
             </div>
         </div>

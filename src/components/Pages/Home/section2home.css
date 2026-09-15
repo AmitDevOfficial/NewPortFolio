@@ -1,12 +1,30 @@
+.brandSliderWrap {
+    text-align: center;
+}
+
 .slickSliderSectionTwo {
-   margin: 150px 0px 150px 0px;
+   margin-top: 30px;
    align-items: center !important;
 }
 
+.slickSliderSectionTwo .slick-track {
+    display: flex !important;
+    align-items: center;
+}
+
+.slickSliderSectionTwo .slick-slide > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90px;
+}
+
 .slickSliderSectionTwo img{
-    width: 30%;
+    width: 100%;
+    max-width: 110px;
     opacity: 60%;
     margin: auto;
+    padding-top: 12px;
     filter: var(--bs-filter);
 }
 
@@ -14,5 +32,11 @@
     transition: 0.8s ease;
     opacity: 100%;
     filter: var(--bs-filter);
+}
+
+@media (max-width: 576px) {
+    .slickSliderSectionTwo img {
+        max-width: 90px;
+    }
 }
 

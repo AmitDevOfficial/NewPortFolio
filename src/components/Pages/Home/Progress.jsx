@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import "./section6home.css";
 
 export default function Progress(props) {
@@ -32,9 +32,9 @@ export default function Progress(props) {
                     <span className='socialSubTitle'>{value}%</span>
                 </div>
             </div>
-            <progress id="file" value={value} max="100">
-                {value}%
-            </progress>
+            <div className="progressTrack">
+                <div className="progressFill" style={{ width: `${value}%` }}></div>
+            </div>
         </div>
     )
 }

@@ -1,106 +1,214 @@
-.myHome{
+.myHome {
     display: flex;
-    padding-top: 100px;
+    align-items: center;
+    gap: 40px;
+    padding-top: 160px;
+    padding-bottom: 80px;
+    min-height: 90vh;
 }
 
 span.styles-module_blinkingCursor__yugAC.styles-module_blinking__9VXRT {
     color: var(--text-hover) !important;
 }
+
 /*-------Left Section------*/
-.homeLeftColoum{
-    width: 50%;
-    align-self: center;
+.homeLeftColoum {
+    width: 55%;
 }
 
-.homeLeftColoum .subTitle{
+.homeLeftColoum .subTitle {
     font-size: 14px;
     font-family: var(--font-heading);
-    color: var(--light);
     letter-spacing: 3px;
     text-transform: uppercase;
     font-weight: 500;
     display: block;
-    margin-bottom: 20px;
-    color: var(--secondary);
+    margin-bottom: 16px;
+    color: var(--socialSubTitle);
 }
-.homeLeftColoum h1{
+
+.homeLeftColoum h1 {
     font-family: var(--font-primary);
     text-transform: capitalize;
     font-weight: 700;
-    font-size: 60px;
-    letter-spacing: 3px;
-    line-height: 62px;
+    margin-bottom: 6px;
 }
 
-.myName{
-    /* color: var(--primary); */
+.myName {
     background: var(--primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.myProfession{
+
+.myProfession {
     color: var(--secondary);
     font-family: var(--font-primary);
     text-transform: capitalize;
     font-weight: 700;
-    font-size: 40px;
-    line-height: 59px;
-    padding: 0px 10px 20px 0px;
-    /* line-height: 100px; */
+    font-size: clamp(20px, 3vw, 36px);
+    line-height: 1.4;
+    padding-bottom: 20px;
 }
 
-.socialMediaMainHome{
+.heroCtas {
     display: flex;
-    width: 85%;
-    justify-content: space-between;
-    margin-top: 55px;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 28px;
 }
-.socialmediaHomeOne ul{
+
+.heroBtn {
+    padding: 16px 32px;
+    font-size: 14px;
+    font-family: var(--font-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    display: inline-block;
+}
+
+.heroBtnPrimary {
+    background: var(--bs-background1);
+    color: #fff;
+    box-shadow: var(--bs-box-shadow1);
+}
+
+.heroBtnGhost {
+    --border-angle: 0deg;
+    color: var(--secondary);
+    border: 2px solid transparent;
+    background:
+        linear-gradient(var(--surface), var(--surface)) padding-box,
+        conic-gradient(from var(--border-angle), transparent 0%, var(--primary) 50%, transparent 100%) border-box;
+    animation: borderAngleSpin 3s linear infinite;
+}
+
+.heroBtn:hover {
+    transform: translateY(-6px);
+}
+
+.heroBtnPrimary:hover,
+.heroBtnGhost:hover {
+    box-shadow: 0 10px 32px var(--primary);
+}
+
+.socialMediaMainHome {
     display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 50px;
 }
+
+.socialmediaHomeOne ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .socialmediaHomeOne ul li {
     list-style: none;
-    margin-right: 20px;
+    margin-right: 16px;
     background: var(--bs-background1);
-    padding: 18px 20px;
-    border-radius: 3px;
+    padding: 16px 18px;
+    border-radius: 8px;
     box-shadow: var(--bs-box-shadow1);
-    /* transform: translateY(0); */
-    transition: transform 0.8s ease;
-}
-.socialmediaHomeOne ul li:hover{
-   transform: translateY(-10px);
-   background: var(--hover-animation);
-   transition: 0.8s ease;
-}
-.socialmediaHomeOne ul li a{
-    color: white;
-    font-size: 20px;
+    transition: transform 0.5s ease;
 }
 
-.socialmediaHomeOne ul li:hover a{
+.socialmediaHomeOne ul li:hover {
+    transform: translateY(-8px);
+    background: var(--hover-animation);
+    box-shadow: 0 14px 28px var(--primary);
+}
+
+.socialmediaHomeOne ul li a {
+    color: white;
+    font-size: 20px;
+    display: block;
+}
+
+.socialmediaHomeOne ul li:hover a {
     color: var(--primary);
-    transition: 0.8s ease;
 }
-.socialmediaHomeTwo ul li {
-    padding: 6px 12px;
+
+#home .socialSubTitle {
+    color: var(--socialSubTitle) !important;
 }
-.socialmediaHomeOne img{
-    max-width: 28px;
-}
-#home .socialSubTitle{
-    color: var(--secondary) !important;
-}
+
 .bestSkills {
-    color:#00d7fd !important
+    color: #00d7fd !important
 }
+
 .bestSkills1 {
-    color:white !important
+    color: white !important
 }
+
 .bestSkills2 {
-    color:#8fbb3b !important
+    color: #8fbb3b !important
 }
+
 /*-------Right Section------*/
-.homeRightColoum{
-    width: 50%;
+.homeRightColoum {
+    width: 45%;
+    text-align: center;
+}
+
+.homeRightColoum img {
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 30px 40px rgba(72, 117, 255, 0.25));
+}
+
+@media (max-width: 992px) {
+    .myHome {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding-top: 130px;
+        min-height: unset;
+        gap: 30px;
+    }
+
+    .homeLeftColoum,
+    .homeRightColoum {
+        width: 100%;
+    }
+
+    .homeRightColoum img {
+        max-width: 65%;
+    }
+
+    .heroCtas,
+    .socialMediaMainHome {
+        justify-content: center;
+    }
+
+    .socialmediaHomeOne ul {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .myHome {
+        padding-top: 110px;
+    }
+
+    .homeRightColoum img {
+        max-width: 80%;
+    }
+
+    .socialMediaMainHome {
+        gap: 24px;
+    }
+
+    .heroBtn {
+        width: 100%;
+        text-align: center;
+        padding: 14px 20px;
+    }
+
+    .heroCtas {
+        width: 100%;
+    }
 }

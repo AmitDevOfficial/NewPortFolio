@@ -1,144 +1,36 @@
-import React from 'react';
+import { useState } from "react";
 import "./section8home.css";
-import clientOne from "../images/HomeImg/client1.png"
-import { LuQuote } from "react-icons/lu";
-import { IoMdStar } from "react-icons/io";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import clientTwo from "../images/HomeImg/client2.png"
-import clientThree from "../images/HomeImg/client3.png"
+import { motion } from 'framer-motion';
+import { HiOutlineMail } from "react-icons/hi";
+import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
+import { IoLogoInstagram } from "react-icons/io5";
+import { loadContact } from "../../../utils/contactStore";
 
 export default function Section8Home() {
-    const settings = {
-        infinite: true,
-        speed: 2000,          // Smooth transition speed
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: false,
-        // autoplaySpeed: 5000,  // 3-second delay between slides
-        cssEase: "ease", // Better easing for transitions
-        arrows: true
-    };
+    const [contact] = useState(() => loadContact());
 
     return (
-        <div id="section8Home" className='container'>
-            <div className="mainsection8Home">
-                <span className='socialSubTitle'>What Clients Say</span>
-                <h1>Commendations</h1>
-                <div className="sliderWrapper" style={{ width: "100%", margin: "auto" }}>
-                    <Slider {...settings}>
-                        {/* -----SliderOne----- */}
-                        <div className='startSlider'>
-                            <div className="mainClientSay">
-                                <div className="clientLeft">
-                                    <img src={clientOne} alt="" />
-                                    <span className='socialSubTitle'>What Clients Say</span>
-                                    <h5>Jhon Doe</h5>
-                                    <p>CEO of Officer</p>
-                                </div>
-                                <div className="clientRight">
-                                    <div className="clientInnerOne">
-                                        <div>
-                                            <span className='quote'><LuQuote /></span>
-                                        </div>
-                                        <div>
-                                        </div>
-                                    </div>
-                                    <div className="clientInnerTwo">
-                                        <div className="contentWithIcon">
-                                            <div className='clientInfo'>
-                                                <h5>Android App Development</h5>
-                                                <p>via Upwork - Mar 4, 2015 - Aug 30, 2021 test</p>
-                                            </div>
-                                            <div className='rating'>
-                                                <div className='ratingStar'>
-                                                    <IoMdStar /><IoMdStar /><IoMdStar /><IoMdStar /><IoMdStar />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <hr />
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, illo repudiandae quos facere id, ducimus tempore natus, optio temporibus nihil beatae consectetur dicta unde magni quo. Iste reiciendis illo odio dolorum fuga?repudiandae quos facere id, ducimus tempore natus, optio temporibus nihil beatae</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+        <div id="contact" className='container section-spacing'>
+            <motion.div
+                className="mainsection8Home"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+            >
+                <span className='socialSubTitle'>Let's Work Together</span>
+                <h2>Have a project in mind?</h2>
+                <p className="contactLead">I'm currently available for freelance work and full-time opportunities. Whether you need a WordPress site, a Shopify store, or a full-stack web app — let's talk.</p>
 
-                        {/* -----SliderTwo----- */}
-                        <div className='startSlider'>
-                            <div className="mainClientSay">
-                                <div className="clientLeft">
-                                    <img src={clientTwo} alt="" />
-                                    <span className='socialSubTitle'>What Clients Say</span>
-                                    <h5>Jhon Doe</h5>
-                                    <p>CEO of Officer</p>
-                                </div>
-                                <div className="clientRight">
-                                    <div className="clientInnerOne">
-                                        <div>
-                                            <span className='quote'><LuQuote /></span>
-                                        </div>
-                                        <div>
-                                        </div>
-                                    </div>
-                                    <div className="clientInnerTwo">
-                                        <div className="contentWithIcon">
-                                            <div className='clientInfo'>
-                                                <h5>Android App Development</h5>
-                                                <p>via Upwork - Mar 4, 2015 - Aug 30, 2021 test</p>
-                                            </div>
-                                            <div className='rating'>
-                                                <div className='ratingStar'>
-                                                    <IoMdStar /><IoMdStar /><IoMdStar /><IoMdStar /><IoMdStar />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <hr />
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, illo repudiandae quos facere id, ducimus tempore natus, optio temporibus nihil beatae consectetur dicta unde magni quo. Iste reiciendis illo odio dolorum fuga?repudiandae quos facere id, ducimus tempore natus, optio temporibus nihil beatae</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        {/* -----SliderThree----- */}
-                        <div className='startSlider'>
-                            <div className="mainClientSay">
-                                <div className="clientLeft">
-                                    <img src={clientThree} alt="" />
-                                    <span className='socialSubTitle'>What Clients Say</span>
-                                    <h5>Jhon Doe</h5>
-                                    <p>CEO of Officer</p>
-                                </div>
-                                <div className="clientRight">
-                                    <div className="clientInnerOne">
-                                        <div>
-                                            <span className='quote'><LuQuote /></span>
-                                        </div>
-                                        <div>
-                                            
-                                        </div>
-                                    </div>
-                                    <div className="clientInnerTwo">
-                                        <div className="contentWithIcon">
-                                            <div className='clientInfo'>
-                                                <h5>Android App Development</h5>
-                                                <p>via Upwork - Mar 4, 2015 - Aug 30, 2021 test</p>
-                                            </div>
-                                            <div className='rating'>
-                                                <div className='ratingStar'>
-                                                    <IoMdStar /><IoMdStar /><IoMdStar /><IoMdStar /><IoMdStar />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <hr />
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, illo repudiandae quos facere id, ducimus tempore natus, optio temporibus nihil beatae consectetur dicta unde magni quo. Iste reiciendis illo odio dolorum fuga?repudiandae quos facere id, ducimus tempore natus, optio temporibus nihil beatae</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </Slider>
+                <div className="contactActions">
+                    <a href={`mailto:${contact.email}`} className="heroBtn contactBtnPrimary"><HiOutlineMail /> {contact.email}</a>
                 </div>
-            </div>
+
+                <div className="contactSocial">
+                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebookF /></a>
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><IoLogoInstagram /></a>
+                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedinIn /></a>
+                </div>
+            </motion.div>
         </div>
     )
 }
