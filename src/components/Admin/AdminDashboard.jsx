@@ -25,6 +25,7 @@ function emptyProject() {
         tags: [],
         imgKey: "portfolioOne",
         imgUrl: "",
+        link: "",
         featured: false
     };
 }
@@ -140,6 +141,16 @@ function ProjectEditor({ project, index, total, onChange, onDelete, onMove }) {
                     value={project.tags.join(", ")}
                     onChange={(e) => update("tags", e.target.value.split(",").map((t) => t.trim()).filter(Boolean))}
                     placeholder="WordPress, PHP, SEO"
+                />
+            </label>
+
+            <label>
+                Project link (optional — clicking the card opens this in a new tab)
+                <input
+                    type="text"
+                    value={project.link || ""}
+                    onChange={(e) => update("link", e.target.value)}
+                    placeholder="https://example.com/project"
                 />
             </label>
 

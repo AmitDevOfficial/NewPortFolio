@@ -12,25 +12,33 @@ export default function Section5Home() {
     const projects = allProjects.filter((p) => p.featured);
     const moreProjects = allProjects.filter((p) => !p.featured);
 
-    const renderCard = (project, i) => (
-        <motion.div
-            className="projectCard"
-            key={project.id}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-        >
-            <div className="projectImg" style={{ backgroundImage: `url(${resolveProjectImage(project)})` }}></div>
-            <div className="projectBody">
-                <span className='socialSubTitle'>{project.tag}</span>
-                <h3>{project.title}</h3>
-                <p>{project.desc}</p>
-                <div className="projectTags">
-                    {project.tags.map((t) => <span key={t}>{t}</span>)}
+    const renderCard = (project, i) => {
+        const CardTag = project.link ? motion.a : motion.div;
+        const linkProps = project.link
+            ? { href: project.link, target: "_blank", rel: "noopener noreferrer" }
+            : {};
+
+        return (
+            <CardTag
+                className="projectCard"
+                key={project.id}
+                {...linkProps}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+            >
+                <div className="projectImg" style={{ backgroundImage: `url(${resolveProjectImage(project)})` }}></div>
+                <div className="projectBody">
+                    <span className='socialSubTitle'>{project.tag}</span>
+                    <h3>{project.title}</h3>
+                    <p>{project.desc}</p>
+                    <div className="projectTags">
+                        {project.tags.map((t) => <span key={t}>{t}</span>)}
+                    </div>
                 </div>
-            </div>
-        </motion.div>
-    );
+            </CardTag>
+        );
+    };
 
     return (
         <div id='projects' className='container section-spacing'>

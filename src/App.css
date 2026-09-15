@@ -5,6 +5,13 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 90px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+  width: 0;
 }
 
 @property --border-angle {
@@ -168,15 +175,13 @@ h3 {
 body {
   overflow-y: auto;
   max-height: 100%;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 body::-webkit-scrollbar {
-  width: 6px;
-}
-
-body::-webkit-scrollbar-thumb {
-  background: var(--primary);
-  border-radius: 50px;
+  display: none;
+  width: 0;
 }
 
 .section-spacing {

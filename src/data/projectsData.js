@@ -23,6 +23,7 @@ export const defaultProjects = [
         tags: ["WordPress", "PHP", "SEO"],
         imgKey: "portfolioOne",
         imgUrl: "",
+        link: "",
         featured: true
     },
     {
@@ -33,6 +34,7 @@ export const defaultProjects = [
         tags: ["Shopify", "Liquid", "UI/UX"],
         imgKey: "portfolioTwo",
         imgUrl: "",
+        link: "",
         featured: true
     },
     {
@@ -43,6 +45,7 @@ export const defaultProjects = [
         tags: ["React", "Node JS", "MongoDB"],
         imgKey: "portfolioThree",
         imgUrl: "",
+        link: "",
         featured: true
     },
     {
@@ -53,6 +56,7 @@ export const defaultProjects = [
         tags: ["WordPress", "Elementor", "SEO"],
         imgKey: "portfolioTwo",
         imgUrl: "",
+        link: "",
         featured: false
     },
     {
@@ -63,6 +67,7 @@ export const defaultProjects = [
         tags: ["Shopify", "Liquid", "CRO"],
         imgKey: "portfolioThree",
         imgUrl: "",
+        link: "",
         featured: false
     },
     {
@@ -73,6 +78,7 @@ export const defaultProjects = [
         tags: ["Node JS", "Express", "REST API"],
         imgKey: "portfolioOne",
         imgUrl: "",
+        link: "",
         featured: false
     }
 ];

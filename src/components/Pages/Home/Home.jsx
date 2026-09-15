@@ -47,7 +47,7 @@ export default function Home() {
           <p>{hero.paragraph}</p>
 
           <div className="heroCtas">
-            <a href="#contact" className="heroBtn heroBtnPrimary">Hire Me</a>
+            <a href="https://wa.me/917974743671" target="_blank" rel="noopener noreferrer" className="heroBtn heroBtnPrimary">Hire Me</a>
             <a href={resume.url} download={resume.fileName} className="heroBtn heroBtnGhost">Download Resume</a>
           </div>
 

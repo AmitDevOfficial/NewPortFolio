@@ -40,7 +40,7 @@ export default function Header(props) {
                         )}
                     </div>
 
-                    <a href="#contact" className="custom-btn btn-11">Hire Me<div className="dot"></div></a>
+                    <a href="https://wa.me/917974743671" target="_blank" rel="noopener noreferrer" className="custom-btn btn-11">Hire Me<div className="dot"></div></a>
                 </div>
             </div>
         </header>
