@@ -104,9 +104,16 @@ function ProjectEditor({ project, index, total, onChange, onDelete, onMove }) {
         : "gallery";
     const [imageMode, setImageMode] = useState(initialMode);
     const [uploadError, setUploadError] = useState("");
+    const [tagsText, setTagsText] = useState(project.tags.join(", "));
 
     const update = (field, value) => {
         onChange({ ...project, [field]: value });
+    };
+
+    const handleTagsChange = (e) => {
+        const text = e.target.value;
+        setTagsText(text);
+        update("tags", text.split(",").map((t) => t.trim()).filter(Boolean));
     };
 
     const handleFileUpload = (e) => {
@@ -154,8 +161,8 @@ function ProjectEditor({ project, index, total, onChange, onDelete, onMove }) {
                 Tags (comma separated)
                 <input
                     type="text"
-                    value={project.tags.join(", ")}
-                    onChange={(e) => update("tags", e.target.value.split(",").map((t) => t.trim()).filter(Boolean))}
+                    value={tagsText}
+                    onChange={handleTagsChange}
                     placeholder="WordPress, PHP, SEO"
                 />
             </label>
