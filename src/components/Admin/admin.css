@@ -191,6 +191,29 @@
     margin-bottom: 24px;
 }
 
+.adminToast {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    background: #16a34a;
+    color: #fff;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-family: var(--font-primary);
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    z-index: 2000;
+    animation: adminToastFade 1.2s ease forwards;
+}
+
+@keyframes adminToastFade {
+    0% { opacity: 0; transform: translateY(-8px); }
+    15% { opacity: 1; transform: translateY(0); }
+    80% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-8px); }
+}
+
 .adminBtnPrimary,
 .adminBtnGhost {
     padding: 12px 22px;

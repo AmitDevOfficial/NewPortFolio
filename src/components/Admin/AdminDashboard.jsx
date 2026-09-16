@@ -1,20 +1,34 @@
 import { useState } from "react";
 import "./admin.css";
 import { builtInImages, builtInImageOptions, resolveProjectImage } from "../../data/projectsData";
-import { loadProjects, saveProjects, resetProjects, hasDraft } from "../../utils/projectsStore";
+import { loadProjects, saveProjects, resetProjects } from "../../utils/projectsStore";
 import { defaultResume, getResumeSource } from "../../data/resumeData";
-import { loadResume, saveResume, resetResume, hasResumeDraft } from "../../utils/resumeStore";
+import { loadResume, saveResume, resetResume } from "../../utils/resumeStore";
 import { builtInBrandImages, builtInBrandImageOptions, resolveBrandImage } from "../../data/brandsData";
-import { loadBrands, saveBrands, resetBrands, hasBrandsDraft } from "../../utils/brandsStore";
+import { loadBrands, saveBrands, resetBrands } from "../../utils/brandsStore";
 import { builtInAboutImages, builtInAboutImageOptions, resolveAboutImage } from "../../data/aboutData";
-import { loadAbout, saveAbout, resetAbout, hasAboutDraft } from "../../utils/aboutStore";
+import { loadAbout, saveAbout, resetAbout } from "../../utils/aboutStore";
 import { builtInToolImages, builtInToolImageOptions, resolveToolImage } from "../../data/toolsData";
-import { loadTools, saveTools, resetTools, hasToolsDraft } from "../../utils/toolsStore";
-import { loadHero, saveHero, resetHero, hasHeroDraft } from "../../utils/heroStore";
+import { loadTools, saveTools, resetTools } from "../../utils/toolsStore";
+import { loadHero, saveHero, resetHero } from "../../utils/heroStore";
 import { builtInHeroImages, builtInHeroImageOptions, resolveHeroImage } from "../../data/heroData";
-import { loadContact, saveContact, resetContact, hasContactDraft } from "../../utils/contactStore";
+import { loadContact, saveContact, resetContact } from "../../utils/contactStore";
 
 const ADMIN_PASSWORD = "amit@admin123";
+
+function useSaveToast() {
+    const [visible, setVisible] = useState(false);
+    const trigger = () => {
+        setVisible(true);
+        setTimeout(() => setVisible(false), 1200);
+    };
+    return [visible, trigger];
+}
+
+function SaveToast({ visible }) {
+    if (!visible) return null;
+    return <div className="adminToast">Saved</div>;
+}
 
 function emptyProject() {
     return {
@@ -404,21 +418,19 @@ const SECTIONS = [
 
 function ContactPanel() {
     const [contact, setContact] = useState(() => loadContact());
-    const [draftExists, setDraftExists] = useState(() => hasContactDraft());
     const [status, setStatus] = useState("");
     const [exportOpen, setExportOpen] = useState(false);
     const [copied, setCopied] = useState(false);
+    const [toastVisible, triggerToast] = useSaveToast();
 
     const handleSave = () => {
         saveContact(contact);
-        setDraftExists(true);
-        setStatus("Draft saved. Open the site's Contact section and footer (in this browser) to preview it.");
+        triggerToast();
     };
 
     const handleReset = () => {
         resetContact();
         setContact(loadContact());
-        setDraftExists(false);
         setStatus("Reset to the default email.");
     };
 
@@ -445,11 +457,11 @@ function ContactPanel() {
                 To make a change permanent for every visitor, use <strong>Export Code</strong> and paste it into <code>src/data/contactData.js</code>, then redeploy.
             </p>
 
-            {draftExists && <div className="adminBanner">A saved draft is active — the site's contact email (in this browser) is showing your edit.</div>}
             {status && <div className="adminStatus">{status}</div>}
 
             <div className="adminActions">
-                <button className="adminBtnPrimary" onClick={handleSave}>Save Draft &amp; Preview</button>
+                <button className="adminBtnPrimary" onClick={handleSave}>Save</button>
+                <SaveToast visible={toastVisible} />
                 <button className="adminBtnGhost" onClick={handleReset}>Reset to Defaults</button>
                 <button className="adminBtnGhost" onClick={() => setExportOpen((v) => !v)}>{exportOpen ? "Hide Export Code" : "Export Code"}</button>
             </div>
@@ -475,10 +487,10 @@ function HeroPanel() {
     const [hero, setHero] = useState(() => loadHero());
     const [imageMode, setImageMode] = useState(() => (loadHero().imgUrl ? (loadHero().imgUrl.startsWith("data:") ? "upload" : "url") : "gallery"));
     const [uploadError, setUploadError] = useState("");
-    const [draftExists, setDraftExists] = useState(() => hasHeroDraft());
     const [status, setStatus] = useState("");
     const [exportOpen, setExportOpen] = useState(false);
     const [copied, setCopied] = useState(false);
+    const [toastVisible, triggerToast] = useSaveToast();
 
     const update = (field, value) => {
         setHero((prev) => ({ ...prev, [field]: value }));
@@ -501,15 +513,13 @@ function HeroPanel() {
 
     const handleSave = () => {
         saveHero(hero);
-        setDraftExists(true);
-        setStatus("Draft saved. Open the site's hero section (in this browser) to preview it.");
+        triggerToast();
     };
 
     const handleReset = () => {
         resetHero();
         setHero(loadHero());
         setImageMode("gallery");
-        setDraftExists(false);
         setStatus("Reset to the default intro text and image.");
     };
 
@@ -536,11 +546,11 @@ function HeroPanel() {
                 To make a change permanent for every visitor, use <strong>Export Code</strong> and paste it into <code>src/data/heroData.js</code>, then redeploy.
             </p>
 
-            {draftExists && <div className="adminBanner">A saved draft is active — the site's hero (in this browser) is showing your edits.</div>}
             {status && <div className="adminStatus">{status}</div>}
 
             <div className="adminActions">
-                <button className="adminBtnPrimary" onClick={handleSave}>Save Draft &amp; Preview</button>
+                <button className="adminBtnPrimary" onClick={handleSave}>Save</button>
+                <SaveToast visible={toastVisible} />
                 <button className="adminBtnGhost" onClick={handleReset}>Reset to Defaults</button>
                 <button className="adminBtnGhost" onClick={() => setExportOpen((v) => !v)}>{exportOpen ? "Hide Export Code" : "Export Code"}</button>
             </div>
@@ -614,10 +624,10 @@ function HeroPanel() {
 
 function FeaturedWorkPanel() {
     const [projects, setProjects] = useState(() => loadProjects());
-    const [draftExists, setDraftExists] = useState(() => hasDraft());
     const [status, setStatus] = useState("");
     const [exportOpen, setExportOpen] = useState(false);
     const [copied, setCopied] = useState(false);
+    const [toastVisible, triggerToast] = useSaveToast();
 
     const updateProject = (index, updated) => {
         setProjects((prev) => prev.map((p, i) => (i === index ? updated : p)));
@@ -643,14 +653,12 @@ function FeaturedWorkPanel() {
 
     const handleSave = () => {
         saveProjects(projects);
-        setDraftExists(true);
-        setStatus("Draft saved. Open the site's Featured Work section (in this browser) to preview it.");
+        triggerToast();
     };
 
     const handleReset = () => {
         resetProjects();
         setProjects(loadProjects());
-        setDraftExists(false);
         setStatus("Reset to default projects.");
     };
 
@@ -677,11 +685,11 @@ function FeaturedWorkPanel() {
                 To make a change permanent for every visitor, use <strong>Export Code</strong> and paste it into <code>src/data/projectsData.js</code>, then redeploy.
             </p>
 
-            {draftExists && <div className="adminBanner">A saved draft is active — the site (in this browser) is showing your edited projects.</div>}
             {status && <div className="adminStatus">{status}</div>}
 
             <div className="adminActions">
-                <button className="adminBtnPrimary" onClick={handleSave}>Save Draft &amp; Preview</button>
+                <button className="adminBtnPrimary" onClick={handleSave}>Save</button>
+                <SaveToast visible={toastVisible} />
                 <button className="adminBtnGhost" onClick={handleReset}>Reset to Defaults</button>
                 <button className="adminBtnGhost" onClick={() => setExportOpen((v) => !v)}>{exportOpen ? "Hide Export Code" : "Export Code"}</button>
             </div>
@@ -714,10 +722,10 @@ function FeaturedWorkPanel() {
 
 function BrandsPanel() {
     const [brands, setBrands] = useState(() => loadBrands());
-    const [draftExists, setDraftExists] = useState(() => hasBrandsDraft());
     const [status, setStatus] = useState("");
     const [exportOpen, setExportOpen] = useState(false);
     const [copied, setCopied] = useState(false);
+    const [toastVisible, triggerToast] = useSaveToast();
 
     const updateBrand = (index, updated) => {
         setBrands((prev) => prev.map((b, i) => (i === index ? updated : b)));
@@ -743,14 +751,12 @@ function BrandsPanel() {
 
     const handleSave = () => {
         saveBrands(brands);
-        setDraftExists(true);
-        setStatus("Draft saved. Open the site's brand strip (in this browser) to preview it.");
+        triggerToast();
     };
 
     const handleReset = () => {
         resetBrands();
         setBrands(loadBrands());
-        setDraftExists(false);
         setStatus("Reset to default logos.");
     };
 
@@ -777,11 +783,11 @@ function BrandsPanel() {
                 To make a change permanent for every visitor, use <strong>Export Code</strong> and paste it into <code>src/data/brandsData.js</code>, then redeploy.
             </p>
 
-            {draftExists && <div className="adminBanner">A saved draft is active — the site's logo strip (in this browser) is showing your edited logos.</div>}
             {status && <div className="adminStatus">{status}</div>}
 
             <div className="adminActions">
-                <button className="adminBtnPrimary" onClick={handleSave}>Save Draft &amp; Preview</button>
+                <button className="adminBtnPrimary" onClick={handleSave}>Save</button>
+                <SaveToast visible={toastVisible} />
                 <button className="adminBtnGhost" onClick={handleReset}>Reset to Defaults</button>
                 <button className="adminBtnGhost" onClick={() => setExportOpen((v) => !v)}>{exportOpen ? "Hide Export Code" : "Export Code"}</button>
             </div>
@@ -814,10 +820,10 @@ function BrandsPanel() {
 
 function ToolsPanel() {
     const [tools, setTools] = useState(() => loadTools());
-    const [draftExists, setDraftExists] = useState(() => hasToolsDraft());
     const [status, setStatus] = useState("");
     const [exportOpen, setExportOpen] = useState(false);
     const [copied, setCopied] = useState(false);
+    const [toastVisible, triggerToast] = useSaveToast();
 
     const updateTool = (index, updated) => {
         setTools((prev) => prev.map((t, i) => (i === index ? updated : t)));
@@ -843,14 +849,12 @@ function ToolsPanel() {
 
     const handleSave = () => {
         saveTools(tools);
-        setDraftExists(true);
-        setStatus("Draft saved. Open the site's Tools I Use section (in this browser) to preview it.");
+        triggerToast();
     };
 
     const handleReset = () => {
         resetTools();
         setTools(loadTools());
-        setDraftExists(false);
         setStatus("Reset to default tools.");
     };
 
@@ -877,11 +881,11 @@ function ToolsPanel() {
                 To make a change permanent for every visitor, use <strong>Export Code</strong> and paste it into <code>src/data/toolsData.js</code>, then redeploy.
             </p>
 
-            {draftExists && <div className="adminBanner">A saved draft is active — the site's Tools I Use section (in this browser) is showing your edited tools.</div>}
             {status && <div className="adminStatus">{status}</div>}
 
             <div className="adminActions">
-                <button className="adminBtnPrimary" onClick={handleSave}>Save Draft &amp; Preview</button>
+                <button className="adminBtnPrimary" onClick={handleSave}>Save</button>
+                <SaveToast visible={toastVisible} />
                 <button className="adminBtnGhost" onClick={handleReset}>Reset to Defaults</button>
                 <button className="adminBtnGhost" onClick={() => setExportOpen((v) => !v)}>{exportOpen ? "Hide Export Code" : "Export Code"}</button>
             </div>
@@ -916,10 +920,10 @@ function AboutPanel() {
     const [about, setAbout] = useState(() => loadAbout());
     const [imageMode, setImageMode] = useState(() => (loadAbout().imgUrl ? (loadAbout().imgUrl.startsWith("data:") ? "upload" : "url") : "gallery"));
     const [uploadError, setUploadError] = useState("");
-    const [draftExists, setDraftExists] = useState(() => hasAboutDraft());
     const [status, setStatus] = useState("");
     const [exportOpen, setExportOpen] = useState(false);
     const [copied, setCopied] = useState(false);
+    const [toastVisible, triggerToast] = useSaveToast();
 
     const update = (field, value) => {
         setAbout((prev) => ({ ...prev, [field]: value }));
@@ -964,15 +968,13 @@ function AboutPanel() {
 
     const handleSave = () => {
         saveAbout(about);
-        setDraftExists(true);
-        setStatus("Draft saved. Open the site's About section (in this browser) to preview it.");
+        triggerToast();
     };
 
     const handleReset = () => {
         resetAbout();
         setAbout(loadAbout());
         setImageMode("gallery");
-        setDraftExists(false);
         setStatus("Reset to default About content.");
     };
 
@@ -999,11 +1001,11 @@ function AboutPanel() {
                 To make a change permanent for every visitor, use <strong>Export Code</strong> and paste it into <code>src/data/aboutData.js</code>, then redeploy.
             </p>
 
-            {draftExists && <div className="adminBanner">A saved draft is active — the site's About section (in this browser) is showing your edits.</div>}
             {status && <div className="adminStatus">{status}</div>}
 
             <div className="adminActions">
-                <button className="adminBtnPrimary" onClick={handleSave}>Save Draft &amp; Preview</button>
+                <button className="adminBtnPrimary" onClick={handleSave}>Save</button>
+                <SaveToast visible={toastVisible} />
                 <button className="adminBtnGhost" onClick={handleReset}>Reset to Defaults</button>
                 <button className="adminBtnGhost" onClick={() => setExportOpen((v) => !v)}>{exportOpen ? "Hide Export Code" : "Export Code"}</button>
             </div>
@@ -1094,11 +1096,11 @@ function AboutPanel() {
 function ResumePanel() {
     const [resume, setResume] = useState(() => loadResume());
     const [mode, setMode] = useState(() => getResumeSource(loadResume()));
-    const [draftExists, setDraftExists] = useState(() => hasResumeDraft());
     const [status, setStatus] = useState("");
     const [uploadError, setUploadError] = useState("");
     const [exportOpen, setExportOpen] = useState(false);
     const [copied, setCopied] = useState(false);
+    const [toastVisible, triggerToast] = useSaveToast();
 
     const handleFileUpload = (e) => {
         const file = e.target.files && e.target.files[0];
@@ -1121,15 +1123,13 @@ function ResumePanel() {
 
     const handleSave = () => {
         saveResume(resume);
-        setDraftExists(true);
-        setStatus("Draft saved. Open the site (in this browser) to preview the new resume link.");
+        triggerToast();
     };
 
     const handleReset = () => {
         resetResume();
         setResume(defaultResume);
         setMode(getResumeSource(defaultResume));
-        setDraftExists(false);
         setStatus("Reset to the default resume file.");
     };
 
@@ -1156,11 +1156,11 @@ function ResumePanel() {
                 To make a change permanent for every visitor, either replace the file in <code>public/Resume/</code>, or use <strong>Export Code</strong> and paste it into <code>src/data/resumeData.js</code>, then redeploy.
             </p>
 
-            {draftExists && <div className="adminBanner">A saved draft is active — the site's Download Resume buttons (in this browser) point to your custom file.</div>}
             {status && <div className="adminStatus">{status}</div>}
 
             <div className="adminActions">
-                <button className="adminBtnPrimary" onClick={handleSave}>Save Draft &amp; Preview</button>
+                <button className="adminBtnPrimary" onClick={handleSave}>Save</button>
+                <SaveToast visible={toastVisible} />
                 <button className="adminBtnGhost" onClick={handleReset}>Reset to Defaults</button>
                 <button className="adminBtnGhost" onClick={() => setExportOpen((v) => !v)}>{exportOpen ? "Hide Export Code" : "Export Code"}</button>
             </div>
