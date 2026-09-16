@@ -18,7 +18,7 @@ export const defaultProjects = [
     {
         "id": "wp-business",
         "tag": "WordPress Development",
-        "title": "Business & Portfolio Websitesssss",
+        "title": "Business & Portfolio Website",
         "desc": "Custom WordPress builds focused on clean design, fast load times, and SEO-friendly structure for small businesses and personal brands.",
         "tags": [
             "WordPress",
