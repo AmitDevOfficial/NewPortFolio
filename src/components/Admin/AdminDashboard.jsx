@@ -13,6 +13,7 @@ import { loadTools, saveTools, resetTools } from "../../utils/toolsStore";
 import { loadHero, saveHero, resetHero } from "../../utils/heroStore";
 import { builtInHeroImages, builtInHeroImageOptions, resolveHeroImage } from "../../data/heroData";
 import { loadContact, saveContact, resetContact } from "../../utils/contactStore";
+import { publishSection } from "../../utils/publish";
 
 const ADMIN_PASSWORD = "amit@admin123";
 
@@ -70,6 +71,7 @@ function AdminLogin({ onSuccess }) {
         e.preventDefault();
         if (password === ADMIN_PASSWORD) {
             window.sessionStorage.setItem("admin_authed", "true");
+            window.sessionStorage.setItem("admin_key", password);
             onSuccess();
         } else {
             setError("Wrong password.");
@@ -423,9 +425,16 @@ function ContactPanel() {
     const [copied, setCopied] = useState(false);
     const [toastVisible, triggerToast] = useSaveToast();
 
-    const handleSave = () => {
+    const handleSave = async () => {
         saveContact(contact);
         triggerToast();
+        setStatus("Publishing...");
+        try {
+            await publishSection("contact", contact);
+            setStatus("Published! It will be live for every visitor on every device in about a minute.");
+        } catch (e) {
+            setStatus(`Saved in this browser only — publishing failed: ${e.message}`);
+        }
     };
 
     const handleReset = () => {
@@ -453,14 +462,14 @@ function ContactPanel() {
             </div>
 
             <p className="adminHint">
-                No database is used here — changes are saved to this browser's local storage so you can preview the contact email live on the site (Contact section button and footer icon).
-                To make a change permanent for every visitor, use <strong>Export Code</strong> and paste it into <code>src/data/contactData.js</code>, then redeploy.
+                Save &amp; Publish previews the contact email instantly here, then commits it straight to the live site — every visitor on every device sees it within about a minute, no manual redeploy needed.
+                Export Code below is just a manual backup if publishing ever fails.
             </p>
 
             {status && <div className="adminStatus">{status}</div>}
 
             <div className="adminActions">
-                <button className="adminBtnPrimary" onClick={handleSave}>Save</button>
+                <button className="adminBtnPrimary" onClick={handleSave}>Save &amp; Publish</button>
                 <SaveToast visible={toastVisible} />
                 <button className="adminBtnGhost" onClick={handleReset}>Reset to Defaults</button>
                 <button className="adminBtnGhost" onClick={() => setExportOpen((v) => !v)}>{exportOpen ? "Hide Export Code" : "Export Code"}</button>
@@ -511,9 +520,16 @@ function HeroPanel() {
         reader.readAsDataURL(file);
     };
 
-    const handleSave = () => {
+    const handleSave = async () => {
         saveHero(hero);
         triggerToast();
+        setStatus("Publishing...");
+        try {
+            await publishSection("hero", hero);
+            setStatus("Published! It will be live for every visitor on every device in about a minute.");
+        } catch (e) {
+            setStatus(`Saved in this browser only — publishing failed: ${e.message}`);
+        }
     };
 
     const handleReset = () => {
@@ -542,14 +558,14 @@ function HeroPanel() {
             </div>
 
             <p className="adminHint">
-                No database is used here — changes are saved to this browser's local storage so you can preview the hero paragraph live on the site.
-                To make a change permanent for every visitor, use <strong>Export Code</strong> and paste it into <code>src/data/heroData.js</code>, then redeploy.
+                Save &amp; Publish previews the hero paragraph instantly here, then commits it straight to the live site — every visitor on every device sees it within about a minute, no manual redeploy needed.
+                Export Code below is just a manual backup if publishing ever fails.
             </p>
 
             {status && <div className="adminStatus">{status}</div>}
 
             <div className="adminActions">
-                <button className="adminBtnPrimary" onClick={handleSave}>Save</button>
+                <button className="adminBtnPrimary" onClick={handleSave}>Save &amp; Publish</button>
                 <SaveToast visible={toastVisible} />
                 <button className="adminBtnGhost" onClick={handleReset}>Reset to Defaults</button>
                 <button className="adminBtnGhost" onClick={() => setExportOpen((v) => !v)}>{exportOpen ? "Hide Export Code" : "Export Code"}</button>
@@ -651,9 +667,16 @@ function FeaturedWorkPanel() {
         setProjects((prev) => [...prev, emptyProject()]);
     };
 
-    const handleSave = () => {
+    const handleSave = async () => {
         saveProjects(projects);
         triggerToast();
+        setStatus("Publishing...");
+        try {
+            await publishSection("featuredWork", projects);
+            setStatus("Published! It will be live for every visitor on every device in about a minute.");
+        } catch (e) {
+            setStatus(`Saved in this browser only — publishing failed: ${e.message}`);
+        }
     };
 
     const handleReset = () => {
@@ -681,14 +704,14 @@ function FeaturedWorkPanel() {
             </div>
 
             <p className="adminHint">
-                No database is used here — changes are saved to this browser's local storage so you can preview them live on the site.
-                To make a change permanent for every visitor, use <strong>Export Code</strong> and paste it into <code>src/data/projectsData.js</code>, then redeploy.
+                Save &amp; Publish previews these projects instantly here, then commits them straight to the live site — every visitor on every device sees it within about a minute, no manual redeploy needed.
+                Export Code below is just a manual backup if publishing ever fails.
             </p>
 
             {status && <div className="adminStatus">{status}</div>}
 
             <div className="adminActions">
-                <button className="adminBtnPrimary" onClick={handleSave}>Save</button>
+                <button className="adminBtnPrimary" onClick={handleSave}>Save &amp; Publish</button>
                 <SaveToast visible={toastVisible} />
                 <button className="adminBtnGhost" onClick={handleReset}>Reset to Defaults</button>
                 <button className="adminBtnGhost" onClick={() => setExportOpen((v) => !v)}>{exportOpen ? "Hide Export Code" : "Export Code"}</button>
@@ -749,9 +772,16 @@ function BrandsPanel() {
         setBrands((prev) => [...prev, emptyBrand()]);
     };
 
-    const handleSave = () => {
+    const handleSave = async () => {
         saveBrands(brands);
         triggerToast();
+        setStatus("Publishing...");
+        try {
+            await publishSection("brands", brands);
+            setStatus("Published! It will be live for every visitor on every device in about a minute.");
+        } catch (e) {
+            setStatus(`Saved in this browser only — publishing failed: ${e.message}`);
+        }
     };
 
     const handleReset = () => {
@@ -779,14 +809,14 @@ function BrandsPanel() {
             </div>
 
             <p className="adminHint">
-                No database is used here — changes are saved to this browser's local storage so you can preview them live on the site.
-                To make a change permanent for every visitor, use <strong>Export Code</strong> and paste it into <code>src/data/brandsData.js</code>, then redeploy.
+                Save &amp; Publish previews these brands instantly here, then commits them straight to the live site — every visitor on every device sees it within about a minute, no manual redeploy needed.
+                Export Code below is just a manual backup if publishing ever fails.
             </p>
 
             {status && <div className="adminStatus">{status}</div>}
 
             <div className="adminActions">
-                <button className="adminBtnPrimary" onClick={handleSave}>Save</button>
+                <button className="adminBtnPrimary" onClick={handleSave}>Save &amp; Publish</button>
                 <SaveToast visible={toastVisible} />
                 <button className="adminBtnGhost" onClick={handleReset}>Reset to Defaults</button>
                 <button className="adminBtnGhost" onClick={() => setExportOpen((v) => !v)}>{exportOpen ? "Hide Export Code" : "Export Code"}</button>
@@ -847,9 +877,16 @@ function ToolsPanel() {
         setTools((prev) => [...prev, emptyTool()]);
     };
 
-    const handleSave = () => {
+    const handleSave = async () => {
         saveTools(tools);
         triggerToast();
+        setStatus("Publishing...");
+        try {
+            await publishSection("tools", tools);
+            setStatus("Published! It will be live for every visitor on every device in about a minute.");
+        } catch (e) {
+            setStatus(`Saved in this browser only — publishing failed: ${e.message}`);
+        }
     };
 
     const handleReset = () => {
@@ -877,14 +914,14 @@ function ToolsPanel() {
             </div>
 
             <p className="adminHint">
-                No database is used here — changes are saved to this browser's local storage so you can preview them live on the site.
-                To make a change permanent for every visitor, use <strong>Export Code</strong> and paste it into <code>src/data/toolsData.js</code>, then redeploy.
+                Save &amp; Publish previews these tools instantly here, then commits them straight to the live site — every visitor on every device sees it within about a minute, no manual redeploy needed.
+                Export Code below is just a manual backup if publishing ever fails.
             </p>
 
             {status && <div className="adminStatus">{status}</div>}
 
             <div className="adminActions">
-                <button className="adminBtnPrimary" onClick={handleSave}>Save</button>
+                <button className="adminBtnPrimary" onClick={handleSave}>Save &amp; Publish</button>
                 <SaveToast visible={toastVisible} />
                 <button className="adminBtnGhost" onClick={handleReset}>Reset to Defaults</button>
                 <button className="adminBtnGhost" onClick={() => setExportOpen((v) => !v)}>{exportOpen ? "Hide Export Code" : "Export Code"}</button>
@@ -966,9 +1003,16 @@ function AboutPanel() {
         reader.readAsDataURL(file);
     };
 
-    const handleSave = () => {
+    const handleSave = async () => {
         saveAbout(about);
         triggerToast();
+        setStatus("Publishing...");
+        try {
+            await publishSection("about", about);
+            setStatus("Published! It will be live for every visitor on every device in about a minute.");
+        } catch (e) {
+            setStatus(`Saved in this browser only — publishing failed: ${e.message}`);
+        }
     };
 
     const handleReset = () => {
@@ -997,14 +1041,14 @@ function AboutPanel() {
             </div>
 
             <p className="adminHint">
-                No database is used here — changes are saved to this browser's local storage so you can preview them live on the site.
-                To make a change permanent for every visitor, use <strong>Export Code</strong> and paste it into <code>src/data/aboutData.js</code>, then redeploy.
+                Save &amp; Publish previews the About section instantly here, then commits it straight to the live site — every visitor on every device sees it within about a minute, no manual redeploy needed.
+                Export Code below is just a manual backup if publishing ever fails.
             </p>
 
             {status && <div className="adminStatus">{status}</div>}
 
             <div className="adminActions">
-                <button className="adminBtnPrimary" onClick={handleSave}>Save</button>
+                <button className="adminBtnPrimary" onClick={handleSave}>Save &amp; Publish</button>
                 <SaveToast visible={toastVisible} />
                 <button className="adminBtnGhost" onClick={handleReset}>Reset to Defaults</button>
                 <button className="adminBtnGhost" onClick={() => setExportOpen((v) => !v)}>{exportOpen ? "Hide Export Code" : "Export Code"}</button>
@@ -1121,9 +1165,16 @@ function ResumePanel() {
         reader.readAsDataURL(file);
     };
 
-    const handleSave = () => {
+    const handleSave = async () => {
         saveResume(resume);
         triggerToast();
+        setStatus("Publishing...");
+        try {
+            await publishSection("resume", resume);
+            setStatus("Published! It will be live for every visitor on every device in about a minute.");
+        } catch (e) {
+            setStatus(`Saved in this browser only — publishing failed: ${e.message}`);
+        }
     };
 
     const handleReset = () => {
@@ -1152,14 +1203,14 @@ function ResumePanel() {
             </div>
 
             <p className="adminHint">
-                No database is used here — changes are saved to this browser's local storage so you can preview the "Download Resume" buttons live on the site.
-                To make a change permanent for every visitor, either replace the file in <code>public/Resume/</code>, or use <strong>Export Code</strong> and paste it into <code>src/data/resumeData.js</code>, then redeploy.
+                Save &amp; Publish previews the "Download Resume" buttons instantly here, then commits the change straight to the live site — every visitor on every device sees it within about a minute, no manual redeploy needed.
+                Export Code below is just a manual backup if publishing ever fails.
             </p>
 
             {status && <div className="adminStatus">{status}</div>}
 
             <div className="adminActions">
-                <button className="adminBtnPrimary" onClick={handleSave}>Save</button>
+                <button className="adminBtnPrimary" onClick={handleSave}>Save &amp; Publish</button>
                 <SaveToast visible={toastVisible} />
                 <button className="adminBtnGhost" onClick={handleReset}>Reset to Defaults</button>
                 <button className="adminBtnGhost" onClick={() => setExportOpen((v) => !v)}>{exportOpen ? "Hide Export Code" : "Export Code"}</button>
