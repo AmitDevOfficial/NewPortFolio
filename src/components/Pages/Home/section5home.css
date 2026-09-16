@@ -73,13 +73,14 @@ a.projectCard {
     border: 2px solid transparent;
     background:
         linear-gradient(var(--surface), var(--surface)) padding-box,
-        conic-gradient(from var(--border-angle), transparent 0%, var(--primary) 50%, transparent 100%) border-box;
+        conic-gradient(from var(--border-angle), transparent 0%, var(--tag-line-color, var(--primary)) 50%, transparent 100%) border-box;
     color: var(--muted);
     font-size: 12px;
     font-family: var(--font-primary);
     letter-spacing: 0.5px;
     animation: borderAngleSpin 3s linear infinite;
 }
+
 
 .moreProjectsBtn {
     display: block;

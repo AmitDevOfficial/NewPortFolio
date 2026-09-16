@@ -4,10 +4,30 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { resolveProjectImage } from "../../../data/projectsData";
 import { loadProjects } from "../../../utils/projectsStore";
 
+const TAG_LINE_COLORS = [
+    "var(--primary)",
+    "skyblue",
+    "#a64dff",
+    "#eab308",
+    "#22c55e",
+];
+
+function getTagLineColor(index) {
+    if (index < TAG_LINE_COLORS.length) return TAG_LINE_COLORS[index];
+    const hue = (index * 137.508) % 360;
+    return `hsl(${hue}, 70%, 60%)`;
+}
+
 export default function Section5Home() {
 
     const [showMore, setShowMore] = useState(false);
-    const [allProjects] = useState(() => loadProjects());
+    const [moreExpanded, setMoreExpanded] = useState(false);
+    const [allProjects] = useState(() =>
+        loadProjects().map((project, i) => ({
+            ...project,
+            _lineColor: getTagLineColor(i)
+        }))
+    );
 
     const projects = allProjects.filter((p) => p.featured);
     const moreProjects = allProjects.filter((p) => !p.featured);
@@ -23,6 +43,7 @@ export default function Section5Home() {
                 className="projectCard"
                 key={project.id}
                 {...linkProps}
+                style={{ "--tag-line-color": project._lineColor }}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
@@ -56,10 +77,12 @@ export default function Section5Home() {
                     {showMore && moreProjects.length > 0 && (
                         <motion.div
                             className="selectedProjects moreProjectsGrid"
+                            style={{ overflow: moreExpanded ? "visible" : "hidden" }}
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: "auto" }}
                             exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.5 }}
+                            onAnimationComplete={() => setMoreExpanded(true)}
                         >
                             {moreProjects.map((project, i) => renderCard(project, i))}
                         </motion.div>
@@ -67,7 +90,11 @@ export default function Section5Home() {
                 </AnimatePresence>
 
                 {moreProjects.length > 0 && (
-                    <button className="moreProjectsBtn" onClick={() => setShowMore((prev) => !prev)}>
+                    <button className="moreProjectsBtn" onClick={() => setShowMore((prev) => {
+                        const next = !prev;
+                        if (!next) setMoreExpanded(false);
+                        return next;
+                    })}>
                         {showMore ? "Show Less" : "More Projects"}
                     </button>
                 )}
