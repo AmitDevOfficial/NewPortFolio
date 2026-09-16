@@ -9,9 +9,9 @@ export const builtInHeroImageOptions = [
 ];
 
 export const defaultHero = {
-    paragraph: "I help businesses build fast, user-friendly, and SEO-optimized websites using WordPress and Shopify. With 2.5+ years of hands-on experience, I turn ideas into high-performing digital platforms that drive results.",
-    imgKey: "srDesigner",
-    imgUrl: ""
+    "paragraph": "I help businesses build fast, user-friendly, and SEO-optimized websites using WordPress and Shopify. With 6+ years of hands-on experience, I turn ideas into high-performing digital platforms that drive results.",
+    "imgKey": "srDesigner",
+    "imgUrl": ""
 };
 
 export function resolveHeroImage(hero) {
