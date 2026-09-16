@@ -26,7 +26,7 @@ export const defaultProjects = [
             "SEO"
         ],
         "imgKey": "portfolioOne",
-        "imgUrl": "/uploads/featuredWork-1789587680925-1.png",
+        "imgUrl": "/uploads/featuredWork-1789588299003-1.png",
         "link": "https://stackcolon.com",
         "featured": true
     },
@@ -41,7 +41,7 @@ export const defaultProjects = [
             "UI/UX"
         ],
         "imgKey": "portfolioTwo",
-        "imgUrl": "/uploads/featuredWork-1789587680927-2.png",
+        "imgUrl": "/uploads/featuredWork-1789588299004-2.png",
         "link": "https://shadyexpression.com",
         "featured": true
     },
@@ -56,7 +56,7 @@ export const defaultProjects = [
             "MongoDB"
         ],
         "imgKey": "portfolioThree",
-        "imgUrl": "/uploads/featuredWork-1789587680928-3.png",
+        "imgUrl": "/uploads/featuredWork-1789588299005-3.png",
         "link": "https://indicesports.com",
         "featured": true
     },
@@ -71,7 +71,7 @@ export const defaultProjects = [
             "SEO"
         ],
         "imgKey": "portfolioTwo",
-        "imgUrl": "/uploads/featuredWork-1789587680938-4.png",
+        "imgUrl": "/uploads/featuredWork-1789588299006-4.png",
         "link": "https://www.losingstereo.com/",
         "featured": false
     },
@@ -116,7 +116,7 @@ export const defaultProjects = [
             "JS"
         ],
         "imgKey": "portfolioOne",
-        "imgUrl": "/uploads/featuredWork-1789587680939-5.png",
+        "imgUrl": "/uploads/featuredWork-1789588299006-5.png",
         "link": "https://www.xylemcap.com",
         "featured": false
     }
