@@ -26,7 +26,7 @@ export const defaultProjects = [
             "SEO"
         ],
         "imgKey": "portfolioOne",
-        "imgUrl": "/uploads/admin-upload-1789586951616-1.png",
+        "imgUrl": "/uploads/featuredWork-1789587680925-1.png",
         "link": "https://stackcolon.com",
         "featured": true
     },
@@ -41,8 +41,8 @@ export const defaultProjects = [
             "UI/UX"
         ],
         "imgKey": "portfolioTwo",
-        "imgUrl": "/uploads/admin-upload-1789586951640-2.png",
-        "link": "",
+        "imgUrl": "/uploads/featuredWork-1789587680927-2.png",
+        "link": "https://shadyexpression.com",
         "featured": true
     },
     {
@@ -56,8 +56,8 @@ export const defaultProjects = [
             "MongoDB"
         ],
         "imgKey": "portfolioThree",
-        "imgUrl": "",
-        "link": "",
+        "imgUrl": "/uploads/featuredWork-1789587680928-3.png",
+        "link": "https://indicesports.com",
         "featured": true
     },
     {
@@ -71,8 +71,8 @@ export const defaultProjects = [
             "SEO"
         ],
         "imgKey": "portfolioTwo",
-        "imgUrl": "",
-        "link": "",
+        "imgUrl": "/uploads/featuredWork-1789587680938-4.png",
+        "link": "https://www.losingstereo.com/",
         "featured": false
     },
     {
@@ -103,6 +103,21 @@ export const defaultProjects = [
         "imgKey": "portfolioOne",
         "imgUrl": "",
         "link": "",
+        "featured": false
+    },
+    {
+        "id": "project-1789583808863",
+        "tag": "Wix Development",
+        "title": "Busniess Webiste",
+        "desc": "This website is for investor website  to invest natural matrials ",
+        "tags": [
+            "Wix",
+            "HTML",
+            "JS"
+        ],
+        "imgKey": "portfolioOne",
+        "imgUrl": "/uploads/featuredWork-1789587680939-5.png",
+        "link": "https://www.xylemcap.com",
         "featured": false
     }
 ];
