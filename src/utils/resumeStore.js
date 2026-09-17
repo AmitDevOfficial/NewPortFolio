@@ -1,27 +1,13 @@
 import { defaultResume } from "../data/resumeData";
 
-const STORAGE_KEY = "portfolio_resume_draft_v1";
-
 export function loadResume() {
-    try {
-        const raw = window.localStorage.getItem(STORAGE_KEY);
-        if (!raw) return defaultResume;
-        const parsed = JSON.parse(raw);
-        if (!parsed || !parsed.url) return defaultResume;
-        return parsed;
-    } catch (e) {
-        return defaultResume;
-    }
+    return defaultResume;
 }
 
-export function saveResume(resume) {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(resume));
+export function saveResume() {
+    // Persistence happens via publishSection() committing to GitHub — nothing to do locally.
 }
 
 export function resetResume() {
-    window.localStorage.removeItem(STORAGE_KEY);
-}
-
-export function hasResumeDraft() {
-    return window.localStorage.getItem(STORAGE_KEY) !== null;
+    // Nothing local to clear; the form is reset to the currently published defaultResume.
 }

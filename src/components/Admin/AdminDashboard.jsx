@@ -437,7 +437,8 @@ function ContactPanel() {
         triggerToast();
         setStatus("Publishing...");
         try {
-            await publishSection("contact", contact);
+            const result = await publishSection("contact", contact);
+            if (result && result.data) setContact(result.data);
             setStatus("Published! It will be live for every visitor on every device in about a minute.");
         } catch (e) {
             setStatus(`Saved in this browser only — publishing failed: ${e.message}`);
@@ -532,7 +533,8 @@ function HeroPanel() {
         triggerToast();
         setStatus("Publishing...");
         try {
-            await publishSection("hero", hero);
+            const result = await publishSection("hero", hero);
+            if (result && result.data) setHero(result.data);
             setStatus("Published! It will be live for every visitor on every device in about a minute.");
         } catch (e) {
             setStatus(`Saved in this browser only — publishing failed: ${e.message}`);
@@ -679,7 +681,8 @@ function FeaturedWorkPanel() {
         triggerToast();
         setStatus("Publishing...");
         try {
-            await publishSection("featuredWork", projects);
+            const result = await publishSection("featuredWork", projects);
+            if (result && result.data) setProjects(result.data);
             setStatus("Published! It will be live for every visitor on every device in about a minute.");
         } catch (e) {
             setStatus(`Saved in this browser only — publishing failed: ${e.message}`);
@@ -784,7 +787,8 @@ function BrandsPanel() {
         triggerToast();
         setStatus("Publishing...");
         try {
-            await publishSection("brands", brands);
+            const result = await publishSection("brands", brands);
+            if (result && result.data) setBrands(result.data);
             setStatus("Published! It will be live for every visitor on every device in about a minute.");
         } catch (e) {
             setStatus(`Saved in this browser only — publishing failed: ${e.message}`);
@@ -889,7 +893,8 @@ function ToolsPanel() {
         triggerToast();
         setStatus("Publishing...");
         try {
-            await publishSection("tools", tools);
+            const result = await publishSection("tools", tools);
+            if (result && result.data) setTools(result.data);
             setStatus("Published! It will be live for every visitor on every device in about a minute.");
         } catch (e) {
             setStatus(`Saved in this browser only — publishing failed: ${e.message}`);
@@ -1015,7 +1020,8 @@ function AboutPanel() {
         triggerToast();
         setStatus("Publishing...");
         try {
-            await publishSection("about", about);
+            const result = await publishSection("about", about);
+            if (result && result.data) setAbout(result.data);
             setStatus("Published! It will be live for every visitor on every device in about a minute.");
         } catch (e) {
             setStatus(`Saved in this browser only — publishing failed: ${e.message}`);
@@ -1177,7 +1183,8 @@ function ResumePanel() {
         triggerToast();
         setStatus("Publishing...");
         try {
-            await publishSection("resume", resume);
+            const result = await publishSection("resume", resume);
+            if (result && result.data) setResume(result.data);
             setStatus("Published! It will be live for every visitor on every device in about a minute.");
         } catch (e) {
             setStatus(`Saved in this browser only — publishing failed: ${e.message}`);

@@ -160,7 +160,7 @@ exports.handler = async (event) => {
         const updatedContent = replaceExport(currentContent, config.exportName, newLiteral);
 
         if (updatedContent === currentContent && assets.length === 0) {
-            return { statusCode: 200, body: JSON.stringify({ ok: true, unchanged: true }) };
+            return { statusCode: 200, body: JSON.stringify({ ok: true, unchanged: true, data: cleanedData }) };
         }
 
         const treeEntries = [{ path: config.path, mode: "100644", type: "blob", content: updatedContent }];
@@ -191,7 +191,7 @@ exports.handler = async (event) => {
             body: JSON.stringify({ sha: newCommit.sha }),
         });
 
-        return { statusCode: 200, body: JSON.stringify({ ok: true }) };
+        return { statusCode: 200, body: JSON.stringify({ ok: true, data: cleanedData }) };
     } catch (e) {
         return { statusCode: 500, body: JSON.stringify({ error: e.message }) };
     }

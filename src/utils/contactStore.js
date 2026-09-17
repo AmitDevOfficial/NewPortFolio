@@ -1,27 +1,13 @@
 import { defaultContact } from "../data/contactData";
 
-const STORAGE_KEY = "portfolio_contact_draft_v1";
-
 export function loadContact() {
-    try {
-        const raw = window.localStorage.getItem(STORAGE_KEY);
-        if (!raw) return defaultContact;
-        const parsed = JSON.parse(raw);
-        if (!parsed || !parsed.email) return defaultContact;
-        return parsed;
-    } catch (e) {
-        return defaultContact;
-    }
+    return defaultContact;
 }
 
-export function saveContact(contact) {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(contact));
+export function saveContact() {
+    // Persistence happens via publishSection() committing to GitHub — nothing to do locally.
 }
 
 export function resetContact() {
-    window.localStorage.removeItem(STORAGE_KEY);
-}
-
-export function hasContactDraft() {
-    return window.localStorage.getItem(STORAGE_KEY) !== null;
+    // Nothing local to clear; the form is reset to the currently published defaultContact.
 }
