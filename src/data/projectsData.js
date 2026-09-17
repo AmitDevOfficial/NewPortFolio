@@ -17,7 +17,7 @@ export const builtInImageOptions = [
 export const defaultProjects = [
     {
         "id": "wp-business",
-        "tag": "WordPress Development",
+        "tag": "WordPress Developmentss123",
         "title": "Digital Marketing Website",
         "desc": "Custom WordPress builds focused on clean design, fast load times, and SEO-friendly structure for small businesses and personal brands.",
         "tags": [
