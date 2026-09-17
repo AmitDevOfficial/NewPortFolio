@@ -113,11 +113,27 @@ export const defaultProjects = [
         "tags": [
             "Wix",
             "HTML",
-            "JS"
+            "JS",
+            "Server"
         ],
         "imgKey": "portfolioOne",
         "imgUrl": "/uploads/featuredWork-1789588299006-5.png",
         "link": "https://www.xylemcap.com",
+        "featured": false
+    },
+    {
+        "id": "project-1789662040478",
+        "tag": "React Wesbsite",
+        "title": "Portfolio Website",
+        "desc": "This is my portfolio webiste",
+        "tags": [
+            "React",
+            "Laravel",
+            "Material UI"
+        ],
+        "imgKey": "portfolioOne",
+        "imgUrl": "/uploads/featuredWork-1789662176122-1.png",
+        "link": "https://amitdevportfolio.netlify.app",
         "featured": false
     }
 ];
