@@ -44,6 +44,17 @@ export const defaultProjects = [
         "imgUrl": "/uploads/featuredWork-1790006910136-1.png",
         "link": "https://cmsguru.in",
         "featured": false
+    },
+    {
+        "id": "project-1790007010768",
+        "tag": "WordPress Development",
+        "title": "Business Website",
+        "desc": "Built a custom multi-step form plugin that lets users submit raw voice recordings, which the admin converts into finished music tracks and delivers back.",
+        "tags": [],
+        "imgKey": "portfolioOne",
+        "imgUrl": "/uploads/featuredWork-1790007174950-1.png",
+        "link": "https://singifyme.com",
+        "featured": false
     }
 ];
 
