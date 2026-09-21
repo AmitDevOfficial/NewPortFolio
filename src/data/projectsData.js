@@ -104,6 +104,64 @@ export const defaultProjects = [
         "imgUrl": "/uploads/featuredWork-1790008111463-3.png",
         "link": "https://www.vizona.com.au/",
         "featured": false
+    },
+    {
+        "id": "project-1790009287857",
+        "tag": "WordPress Development",
+        "title": "Service Website",
+        "desc": "Website for Beyond Wonder Media, a Southeast Asian kids' media company producing safe, high-engagement children's content for YouTube, TikTok, and Facebook.",
+        "tags": [
+            "WordPress",
+            "Custom Theme",
+            "Service"
+        ],
+        "imgKey": "portfolioOne",
+        "imgUrl": "/uploads/featuredWork-1790010211689-1.png",
+        "link": "https://beyondwondermedia.com/",
+        "featured": false
+    },
+    {
+        "id": "project-1790009747702",
+        "tag": "WordPress Development",
+        "title": "Listing Business",
+        "desc": "Local business directory website for Dwarka, Delhi, featuring business listings, events, real estate, used cars, and job openings.",
+        "tags": [
+            "WordPress",
+            "Elementor",
+            "Paid - Theme"
+        ],
+        "imgKey": "portfolioOne",
+        "imgUrl": "/uploads/featuredWork-1790010211689-2.png",
+        "link": "https://mydwarka.in/",
+        "featured": false
+    },
+    {
+        "id": "project-1790009902350",
+        "tag": "WordPress Development",
+        "title": "Informational Website",
+        "desc": "WordPress website for Debt Distress Rescue, a Brisbane insolvency firm offering debt management, liquidation, and business restructuring services.",
+        "tags": [
+            "https://debtdistressrescue.com.au/"
+        ],
+        "imgKey": "portfolioOne",
+        "imgUrl": "/uploads/featuredWork-1790010211690-3.png",
+        "link": "WordPress, Elementor",
+        "featured": false
+    },
+    {
+        "id": "project-1790010022758",
+        "tag": "WordPress Development",
+        "title": "Electrician Service Website",
+        "desc": "A service website for Voltfix Electrical, a licensed electrical contractor serving Brisbane, Logan, and Redlands. The site presents residential and commercial electrical services",
+        "tags": [
+            "WordPress",
+            "Service",
+            "Elementor"
+        ],
+        "imgKey": "portfolioOne",
+        "imgUrl": "/uploads/featuredWork-1790010211691-4.png",
+        "link": "https://www.voltfixelectrical.com.au/",
+        "featured": false
     }
 ];
 
