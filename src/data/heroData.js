@@ -9,7 +9,7 @@ export const builtInHeroImageOptions = [
 ];
 
 export const defaultHero = {
-    "paragraph": "I help businesses build fast, user-friendly, and SEO-optimized websites using WordPress and Shopify. With 8+ years of hands-on experience, I turn ideas into high-performing digital platforms that drive results. hello Amit",
+    "paragraph": "I build lightning-fast, SEO-ready WordPress and Shopify websites and scalable MERN stack apps. With 3year and 8 months of proven expertise, I turn ideas into powerful digital products driving measurable growth.",
     "imgKey": "srDesigner",
     "imgUrl": "/uploads/hero-1789828190523-1.png"
 };
