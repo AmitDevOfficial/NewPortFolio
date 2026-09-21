@@ -12,9 +12,9 @@ export const defaultAbout = {
     "tag": "About Me",
     "heading": "Inquisitive and passionate about emerging technology.",
     "paragraphs": [
-        "I'm Amit Vishwakarma, a passionate web developer with 2.5+ years of experience in WordPress and Shopify, and I've also completed a 6-month MERN stack internship to strengthen my full-stack development skills.",
-        "Along with CMS platforms, I've developed a strong grip on React JS and I'm actively shifting towards modern, scalable, and high-performance front-end development using the latest technologies.",
-        "If you're looking to hire a developer who understands both traditional CMS and modern JavaScript frameworks, feel free to contact me. You can also download my resume using the button below."
+        "I'm Amit Vishwakarma, a passionate web developer with 2.5+ years of experience crafting WordPress and Shopify websites. A 6-month MERN stack internship sharpened my full-stack skills, making me versatile and results-driven.",
+        "Beyond CMS platforms, I've built a strong command of React JS, and I'm actively evolving toward crafting modern, scalable, high-performance front-end experiences using the latest web technologies.",
+        "Looking to hire a developer who understands both traditional CMS and modern JavaScript frameworks? Let's connect and build something exceptional together. Download my resume using the button below to learn more."
     ],
     "imgKey": "aboutImg",
     "imgUrl": ""
