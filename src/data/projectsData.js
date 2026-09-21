@@ -29,6 +29,21 @@ export const defaultProjects = [
         "imgUrl": "/uploads/featuredWork-1789588299003-1.png",
         "link": "https://stackcolon.com",
         "featured": true
+    },
+    {
+        "id": "project-1790006776665",
+        "tag": "Laravel Development",
+        "title": "Library Management",
+        "desc": "Authentication, CRUD operations, role-based access control, book\nissue/return management, subscription validation, PDF book reader,\nsearch & filter, file uploads",
+        "tags": [
+            "Laravel",
+            "Bootstrap",
+            "MySQL"
+        ],
+        "imgKey": "portfolioOne",
+        "imgUrl": "/uploads/featuredWork-1790006910136-1.png",
+        "link": "https://cmsguru.in",
+        "featured": false
     }
 ];
 
