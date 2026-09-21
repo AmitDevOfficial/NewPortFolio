@@ -1,3 +1,3 @@
 export const defaultContact = {
-    email: "ankit15code@gmail.com"
+    "email": "vishamit8827@gmail.com"
 };
