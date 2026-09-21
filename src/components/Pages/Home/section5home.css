@@ -9,11 +9,6 @@
     gap: 28px;
 }
 
-.moreProjectsGrid {
-    margin-top: 28px;
-    overflow: hidden;
-}
-
 .projectCard {
     background: var(--surface);
     border-radius: 16px;
