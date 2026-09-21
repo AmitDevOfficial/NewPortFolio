@@ -50,7 +50,11 @@ export const defaultProjects = [
         "tag": "WordPress Development",
         "title": "Business Website",
         "desc": "Built a custom multi-step form plugin that lets users submit raw voice recordings, which the admin converts into finished music tracks and delivers back.",
-        "tags": [],
+        "tags": [
+            "WordPress",
+            "Custom Theme",
+            "Custom Plugin"
+        ],
         "imgKey": "portfolioOne",
         "imgUrl": "/uploads/featuredWork-1790007174950-1.png",
         "link": "https://singifyme.com",
