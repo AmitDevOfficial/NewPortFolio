@@ -31,19 +31,19 @@ export const defaultProjects = [
         "featured": true
     },
     {
-        "id": "project-1790002802444",
-        "tag": "",
-        "title": "Laravel Development",
-        "desc": "",
+        "id": "mern-fullstack",
+        "tag": "MERN Stack",
+        "title": "Full-Stack Web Applications",
+        "desc": "Modern, scalable web apps built with React, Node.js, Express, and MongoDB — from database design to a polished front end.",
         "tags": [
-            "Bootstrap",
-            "Laravel",
-            "MySql"
+            "React",
+            "Node JS",
+            "MongoDB"
         ],
-        "imgKey": "portfolioOne",
-        "imgUrl": "/uploads/featuredWork-1790002964823-1.png",
-        "link": "",
-        "featured": false
+        "imgKey": "portfolioThree",
+        "imgUrl": "/uploads/featuredWork-1789588299005-3.png",
+        "link": "https://indicesports.com",
+        "featured": true
     }
 ];
 
