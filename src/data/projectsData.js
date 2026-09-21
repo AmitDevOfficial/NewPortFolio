@@ -141,11 +141,13 @@ export const defaultProjects = [
         "title": "Informational Website",
         "desc": "WordPress website for Debt Distress Rescue, a Brisbane insolvency firm offering debt management, liquidation, and business restructuring services.",
         "tags": [
-            "https://debtdistressrescue.com.au/"
+            "WordPress",
+            "Informational",
+            "Elementor"
         ],
         "imgKey": "portfolioOne",
         "imgUrl": "/uploads/featuredWork-1790010211690-3.png",
-        "link": "WordPress, Elementor",
+        "link": "https://debtdistressrescue.com.au/",
         "featured": false
     },
     {
