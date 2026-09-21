@@ -55,6 +55,51 @@ export const defaultProjects = [
         "imgUrl": "/uploads/featuredWork-1790007174950-1.png",
         "link": "https://singifyme.com",
         "featured": false
+    },
+    {
+        "id": "project-1790007526953",
+        "tag": "WordPress Ecommerce",
+        "title": "Business Website",
+        "desc": "A Lord Krishna e-commerce website powered by WordPress, Elementor, and a premium theme, featuring a wide collection of Krishna products, including Baby Krishna.",
+        "tags": [
+            "WordPress",
+            "Woo-commerce",
+            "Elementor"
+        ],
+        "imgKey": "portfolioOne",
+        "imgUrl": "/uploads/featuredWork-1790008111452-1.png",
+        "link": "https://gopalgallery.com",
+        "featured": false
+    },
+    {
+        "id": "project-1790007862712",
+        "tag": "WordPress Development",
+        "title": "E-commerce Website",
+        "desc": "WordPress e-commerce website for Kala Kahani, showcasing handcrafted, sustainable home décor made by global artisans.",
+        "tags": [
+            "WordPress",
+            "Woo-commerce",
+            "Elementor"
+        ],
+        "imgKey": "portfolioOne",
+        "imgUrl": "/uploads/featuredWork-1790008111462-2.png",
+        "link": "https://kalakahani.com/",
+        "featured": false
+    },
+    {
+        "id": "project-1790008002231",
+        "tag": "WordPress Development",
+        "title": "E-commerce Website",
+        "desc": "A business website for Vizona, an Australian pole manufacturer and lighting wholesaler offering LED, solar, and sports lighting, along with street poles, high mast poles, and communication towers.",
+        "tags": [
+            "WordPress",
+            "Woo-commerce",
+            "Elementor"
+        ],
+        "imgKey": "portfolioOne",
+        "imgUrl": "/uploads/featuredWork-1790008111463-3.png",
+        "link": "https://www.vizona.com.au/",
+        "featured": false
     }
 ];
 
