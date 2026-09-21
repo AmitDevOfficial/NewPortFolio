@@ -28,8 +28,8 @@ export default function Section5Home() {
         }))
     );
 
-    const projects = allProjects.filter((p) => p.featured);
-    const moreProjects = allProjects.filter((p) => !p.featured);
+    const projects = allProjects.slice(0, 3);
+    const moreProjects = allProjects.slice(3);
 
     const renderCard = (project, i) => {
         const CardTag = project.link ? motion.a : motion.div;

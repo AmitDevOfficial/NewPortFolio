@@ -222,11 +222,6 @@ function ProjectEditor({ project, index, total, onChange, onDelete, onMove }) {
                     <img src={resolveProjectImage(project)} alt="Selected preview" />
                 </div>
             </div>
-
-            <label className="adminCheckboxLabel">
-                <input type="checkbox" checked={project.featured} onChange={(e) => update("featured", e.target.checked)} />
-                Always show (featured card, not hidden behind "More Projects")
-            </label>
         </div>
     );
 }
@@ -716,6 +711,8 @@ function FeaturedWorkPanel() {
             <p className="adminHint">
                 Save &amp; Publish previews these projects instantly here, then commits them straight to the live site — every visitor on every device sees it within about a minute, no manual redeploy needed.
                 Export Code below is just a manual backup if publishing ever fails.
+                <br />
+                The first 3 projects below always show on the site; the rest appear behind the "More Projects" button. Use the ↑↓ arrows to reorder which ones are in the first 3.
             </p>
 
             {status && <div className="adminStatus">{status}</div>}
