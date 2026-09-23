@@ -108,7 +108,7 @@ export const defaultTools = [
     {
         "id": "tool-1790155125577",
         "imgKey": "html",
-        "imgUrl": "/uploads/tools-1790155174788-1.jpg",
+        "imgUrl": "/uploads/tools-1790155381890-1.png",
         "label": "Laravel"
     },
     {
