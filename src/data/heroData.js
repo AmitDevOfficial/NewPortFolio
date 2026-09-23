@@ -9,7 +9,7 @@ export const builtInHeroImageOptions = [
 ];
 
 export const defaultHero = {
-    "paragraph": "I build lightning-fast, SEO-ready WordPress and Shopify websites and scalable MERN stack apps. With 3year and 8 months of proven expertise, I turn ideas into powerful digital products driving measurable growth.",
+    "paragraph": "I build lightning-fast, SEO-ready MERN, Laravel, PHP, WordPress and Shopify websites and scalable MERN stack apps. With 3year and 8 months of proven expertise, I turn ideas into powerful digital products driving measurable growth.",
     "imgKey": "srDesigner",
     "imgUrl": "/uploads/hero-1789828190523-1.png"
 };
