@@ -39,17 +39,84 @@ export const builtInToolImageOptions = [
 ];
 
 export const defaultTools = [
-    { id: "tool-html", imgKey: "html", imgUrl: "", label: "HTML5" },
-    { id: "tool-css", imgKey: "css", imgUrl: "", label: "CSS3" },
-    { id: "tool-js", imgKey: "javascript", imgUrl: "", label: "JavaScript" },
-    { id: "tool-bootstrap", imgKey: "bootstrap", imgUrl: "", label: "Bootstrap" },
-    { id: "tool-react", imgKey: "react", imgUrl: "", label: "React JS" },
-    { id: "tool-node", imgKey: "node", imgUrl: "", label: "Node JS" },
-    { id: "tool-express", imgKey: "express", imgUrl: "", label: "Express JS" },
-    { id: "tool-mongodb", imgKey: "mongodb", imgUrl: "", label: "MongoDB" },
-    { id: "tool-wordpress", imgKey: "wordpress", imgUrl: "", label: "WordPress" },
-    { id: "tool-shopify", imgKey: "shopify", imgUrl: "", label: "Shopify" },
-    { id: "tool-figma", imgKey: "figma", imgUrl: "", label: "Figma" },
+    {
+        "id": "tool-html",
+        "imgKey": "html",
+        "imgUrl": "",
+        "label": "HTML5"
+    },
+    {
+        "id": "tool-css",
+        "imgKey": "css",
+        "imgUrl": "",
+        "label": "CSS3"
+    },
+    {
+        "id": "tool-js",
+        "imgKey": "javascript",
+        "imgUrl": "",
+        "label": "JavaScript"
+    },
+    {
+        "id": "tool-bootstrap",
+        "imgKey": "bootstrap",
+        "imgUrl": "",
+        "label": "Bootstrap"
+    },
+    {
+        "id": "tool-react",
+        "imgKey": "react",
+        "imgUrl": "",
+        "label": "React JS"
+    },
+    {
+        "id": "tool-node",
+        "imgKey": "node",
+        "imgUrl": "",
+        "label": "Node JS"
+    },
+    {
+        "id": "tool-express",
+        "imgKey": "express",
+        "imgUrl": "",
+        "label": "Express JS"
+    },
+    {
+        "id": "tool-mongodb",
+        "imgKey": "mongodb",
+        "imgUrl": "",
+        "label": "MongoDB"
+    },
+    {
+        "id": "tool-wordpress",
+        "imgKey": "wordpress",
+        "imgUrl": "",
+        "label": "WordPress"
+    },
+    {
+        "id": "tool-shopify",
+        "imgKey": "shopify",
+        "imgUrl": "",
+        "label": "Shopify"
+    },
+    {
+        "id": "tool-figma",
+        "imgKey": "figma",
+        "imgUrl": "",
+        "label": "Figma"
+    },
+    {
+        "id": "tool-1790155125577",
+        "imgKey": "html",
+        "imgUrl": "/uploads/tools-1790155174788-1.jpg",
+        "label": "Laravel"
+    },
+    {
+        "id": "tool-1790155143809",
+        "imgKey": "html",
+        "imgUrl": "/uploads/tools-1790155174788-2.webp",
+        "label": "PHP"
+    }
 ];
 
 export function resolveToolImage(tool) {
