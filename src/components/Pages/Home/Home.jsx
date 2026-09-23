@@ -35,7 +35,7 @@ export default function Home() {
           <div className='myProfession'>
             <span style={{ color: "var(--secondary)", textTransform: "lowercase" }}>a</span>
             <Typewriter
-              words={[' Web Developer', ' Web Designer', ' MERN Stack Developer', ' PHP Developer', ' WordPress Developer', ' Shopify Developer!']}
+              words={[' Web Developer', ' Web Designer', ' MERN Stack Developer', ' PHP Developer', ' WordPress Developer', ' Shopify Developer!', 'Laravel Developer']}
               loop={0}
               cursor
               cursorStyle='|'
