@@ -1,6 +1,6 @@
 export const defaultResume = {
-    url: "/Resume/MERN and CMS Resume.pdf",
-    fileName: "Amit-Vishwakarma-Resume.pdf"
+    "url": "/uploads/resume-1795707424948-1.pdf",
+    "fileName": "Amit Resume.pdf"
 };
 
 export function getResumeSource(resume) {
